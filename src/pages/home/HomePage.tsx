@@ -1,13 +1,13 @@
 import React from "react";
-// import styles from "./HomePage.module.css";
+import styles from "./HomePage.module.css";
 import {
   Header,
-  Footer,
+  Footer
 } from "../../components";
 export const HomePage: React.FC = () => {
   return (<>
     <Header />
-    contentComponent
+    <div className={styles['content']}>middle</div>
     <Footer />
   </>)
 }

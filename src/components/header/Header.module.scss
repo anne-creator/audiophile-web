@@ -23,6 +23,7 @@
 
         li {
             color: white;
+            @include text-style-nav;
 
             li>span:hover {
                 color: $color-secondary;
@@ -39,25 +40,25 @@
         .button__login {
             @include button-basic;
             @include text-style-button;
-            background-color: $color-primary-pink;
+            background-color: $color-primary;
             color: $color-neutrals-8;
             margin-right: 1.2rem;
             border: none;
 
             &:hover {
-                background-color: white;
+                background-color: $color-primary-dark;
             }
 
             &:active,
             &:focus {
-                border-color: $color-primary-pink;
-                background: $color-primary-pink;
-                box-shadow: $color-primary-pink;
+                border-color: $color-primary;
+                background: $color-primary;
+                box-shadow: $color-primary;
             }
 
             ::selection {
                 color: #fff;
-                background: $color-primary-pink !important;
+                background: $color-primary !important;
             }
         }
 
@@ -69,8 +70,8 @@
             border: .2rem solid $color-neutrals-6;
 
             &:hover {
-                border-color: $color-primary-pink;
-                color: $color-primary-pink;
+                border-color: $color-primary;
+                color: $color-primary;
             }
         }
     }
@@ -79,7 +80,7 @@
 .ant-menu-item {
 
     .ant-meun-item-active {
-        color: $color-primary-pink !important;
+        color: $color-primary !important;
     }
 }
 
