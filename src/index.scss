@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet');
+
+:root {
+    font-size: 62.5%;
+}
+
+$color-primary-pink: #D87D4A;
+$color-secondary: #101010;
+$color-neutrals-1: rgba(20, 20, 22, 1);
+$color-neutrals-2: rgba(35, 38, 47, 1);
+$color-neutrals-3: rgba(53, 57, 69, 1);
+$color-neutrals-4: rgba(119, 126, 144, 1);
+$color-neutrals-5: rgba(177, 181, 195, 1);
+$color-neutrals-6: rgba(230, 232, 236, 1);
+$color-neutrals-7: rgba(244, 245, 246, 1);
+$color-neutrals-8: rgba(252, 252, 253, 1);
+
+@mixin text-style-h1 {
+    font-size: 56px;
+    font-family: "Manrope";
+    font-weight: bolder;
+    font-style: normal;
+    line-height: 58px;
+    letter-spacing: 2px;
+    text-decoration: none;
+}
+
+@mixin text-style-h2 {
+    font-size: 40px;
+    font-family: "Manrope";
+    font-weight: bolder;
+    font-style: normal;
+    line-height: 44px;
+    letter-spacing: 1.43px;
+    text-decoration: none;
+}
+
+@mixin text-style-h3 {
+    font-size: 32px;
+    font-family: "Manrope";
+    font-weight: bolder;
+    font-style: normal;
+    line-height: 36px;
+    letter-spacing: 1.14px;
+    text-decoration: none;
+}
+
+@mixin text-style-h4 {
+    font-size: 28px;
+    font-family: "Manrope";
+    font-weight: bolder;
+    font-style: normal;
+    letter-spacing: 2px;
+    text-decoration: none;
+}
+
+@mixin text-style-h5 {
+    font-size: 24px;
+    font-family: "Manrope";
+    font-weight: bolder;
+    font-style: normal;
+    letter-spacing: 1.71px;
+    text-decoration: none;
+}
+
+@mixin text-style-h6 {
+    font-size: 18px;
+    font-family: "Manrope";
+    font-weight: bolder;
+    font-style: normal;
+    letter-spacing: 1.29px;
+    text-decoration: none;
+}
+
+@mixin text-style-overline {
+    font-size: 14px;
+    font-family: "Manrope";
+    font-weight: normal;
+    font-style: normal;
+    letter-spacing: 10px;
+    text-decoration: none;
+}
+
+@mixin text-style-subtitle {
+    font-size: 13px;
+    font-family: "Manrope";
+    font-weight: bolder;
+    font-style: normal;
+    line-height: 25px;
+    letter-spacing: 0.93px;
+    text-decoration: none;
+}
+
+@mixin text-style-title {
+    font-size: 15px;
+    font-family: "Manrope";
+    line-height: 25px;
+    text-decoration: none;
+}
+
+@mixin text-style-button {
+    font-size: 13px;
+    font-family: "Manrope";
+    font-weight: bolder;
+    font-style: normal;
+    letter-spacing: 1px;
+    text-decoration: none;
+}
+
+
+// button
+@mixin button-basic {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    border-radius: 10rem;
+    cursor: pointer;
+}

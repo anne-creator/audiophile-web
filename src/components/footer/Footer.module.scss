@@ -1,0 +1,93 @@
+@import '../../index.scss';
+.footer-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 80px 160px 0px;
+  .footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0px;
+    width: 100%;
+    &__main{
+      display: grid;
+      justify-content: space-between;
+      align-items: flex-start;
+      width: 100%;
+      grid-template-columns: repeat(auto-fit,minmax(120px,1fr));
+      grid-gap:2rem;
+    }
+    // col 1
+    &__paws-up{
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      &__logo{
+        display: flex;
+        align-items: flex-start;
+      }
+      &__img{
+        width: 32px;
+        height: 32px;
+        margin-right: .8rem;
+      }
+      &__title{
+        @include text-style-body-1-bold;
+        color:$color-primary-blue;
+      }
+      &__save-life{
+         color:$color-neutrals-2;
+      }
+    }
+   
+    // col 2
+    &__nav{
+      // height: 9.6rem;
+      // display: flex;
+      // flex-direction: column;
+      // justify-content: space-between;
+      &__item {
+         color:$color-neutrals-4;
+         @include text-style-button-2;
+         margin:1.5rem;
+      }
+    }
+    // col 3
+    &__info{
+      &__item { 
+         color:$color-neutrals-4;
+         @include text-style-button-2;
+         margin:1.5rem;
+      }
+    }
+    &__copyright {
+      display: flex;
+      flex-direction: column;
+      padding: 0px 0px 32px;
+      width: 100%;
+      @include text-style-caption-2;
+      color: $color-neutrals-4;
+      &__content {
+        display: grid;
+        justify-content: space-between;
+        grid-gap: 2rem;
+        grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+        width: 100%;
+      }
+      &__cookies {
+         justify-self: end;
+         @include text-style-caption-2;
+         color: $color-neutrals-3;
+         @media screen and (max-width:955px) {
+            justify-self: start;
+         }
+         span{
+            color:$color-primary-pink;
+         }
+      }
+    }
+  }
+}

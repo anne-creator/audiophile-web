@@ -1,0 +1,88 @@
+@import '../../index.scss';
+
+.header {
+    min-height: 8.1rem;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 16rem;
+    background-color: $color-secondary;
+
+    // //////////left-header//////////////// //
+
+    // //////////middle-header//////////////// //
+    &__middle {
+        align-items: center;
+        width: 70%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        background-color: $color-secondary !important;
+        border-bottom-width: 0px !important;
+
+        li {
+            color: white;
+
+            li>span:hover {
+                color: $color-secondary;
+            }
+        }
+    }
+
+
+    ////////////right-header//////////////// //
+    &__right {
+        display: flex;
+        align-items: center;
+
+        .button__login {
+            @include button-basic;
+            @include text-style-button;
+            background-color: $color-primary-pink;
+            color: $color-neutrals-8;
+            margin-right: 1.2rem;
+            border: none;
+
+            &:hover {
+                background-color: white;
+            }
+
+            &:active,
+            &:focus {
+                border-color: $color-primary-pink;
+                background: $color-primary-pink;
+                box-shadow: $color-primary-pink;
+            }
+
+            ::selection {
+                color: #fff;
+                background: $color-primary-pink !important;
+            }
+        }
+
+        .button__signup {
+            @include button-basic;
+            color: $color-neutrals-8;
+            @include text-style-button;
+            color: $color-neutrals-2;
+            border: .2rem solid $color-neutrals-6;
+
+            &:hover {
+                border-color: $color-primary-pink;
+                color: $color-primary-pink;
+            }
+        }
+    }
+}
+
+.ant-menu-item {
+
+    .ant-meun-item-active {
+        color: $color-primary-pink !important;
+    }
+}
+
+.ant-menu-item:hover {
+    color: red;
+}
