@@ -1,37 +1,72 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from './Header.module.scss'
 import logo from "../../assets/logo.png";
-import { Menu, Dropdown, Button, Layout, Typography, Input } from "antd";
-
-
-import SubMenu from "antd/lib/menu/SubMenu";
+import { Button, Row, Col } from "antd";
+import { MenuOutlined } from '@ant-design/icons'
 
 export const Header: React.FC = () => {
+  const [showLinks, setShowLinks] = useState(false);
 
   return (
     <div className={styles["app-header"]}>
       <div className={styles["header"]}>
-        <img src={logo} alt="logo" />
-        <Menu mode='horizontal' className={styles["header__middle"]}>
-          <Menu.Item key="Home" title="Adopt" className={styles['item']}>
-            HOME
-          </Menu.Item>
-          <Menu.Item key="HEADPHONES" title="Adopt" className={styles['item']}>
-            HEADPHONES
-          </Menu.Item>
-          <Menu.Item key="SPEAKERS" title="Adopt" className={styles['item']}>
-            SPEAKERS
-          </Menu.Item>
-          <Menu.Item key="EARPHONES" title="Adopt" className={styles['item']}>
-            EARPHONES
-          </Menu.Item>
-        </Menu>
-        <div className={styles['header__right']}>
-          <Button type='primary' className={styles['button__login']} >Sign In</Button>
-          <Button className={styles['button__signup']} >Register</Button>
+        {/* 1.logo */}
+        <div className={styles['logo-container']}><img src={logo} alt="logo" /></div>
+        {/* 2.nav */}
+        <div className={styles['nav']}>
+          {/* nav button */}
+          <div className={styles['nav__category']}>
+            <MenuOutlined
+              className={styles['nav__button']}
+              style={{ fontSize: '16px', color: '#fff' }}
+              onClick={() => setShowLinks(!showLinks)}
+            />
+          </div>
+          {/* nav bar */}
+          <ul className={styles["nav__items"]}>
+            <li className={styles['item']}>
+              HOME
+            </li>
+            <li className={styles['item']}>
+              HEADPHONES
+            </li>
+            <li className={styles['item']}>
+              SPEAKERS
+            </li>
+            <li className={styles['item']}>
+              EARPHONES
+            </li>
+          </ul>
+        </div>
+        {/* 3.right */}
+        <div>
+          <div className={styles['header__right']}>
+            <Button type='primary' className={styles['button__login']} >Sign In</Button>
+            <Button className={styles['button__signup']} >Register</Button>
+          </div>
         </div>
       </div>
-    </div>
+      {/* nav bar */}
+      {
+        showLinks ?
+          <div className={styles[showLinks ? 'hidden' : '']} >
+            <div className={styles['item']}>
+              HOME
+            </div>
+            <div className={styles['item']}>
+              HEADPHONES
+            </div>
+            <div className={styles['item']}>
+              SPEAKERS
+            </div>
+            <div className={styles['item']}>
+              EARPHONES
+            </div>
+          </div> : null
+
+      }
+
+    </div >
   );
 }
 

@@ -1,0 +1,30 @@
+@import '../../index.scss';
+
+.content {
+    min-height: 50vh;
+    margin: 12rem 16.8rem 20rem 16.8rem 20rem;
+}
+
+.shop {
+    margin: 12rem 0.1vw 16.8rem 0.1vw；
+}
+
+.item {
+    position: relative;
+
+    &__info {
+        height: 10.4rem;
+        background-color: $color-neutrals-7;
+    }
+
+    &__title {}
+
+    &__button {
+        color: $color-primary !important;
+    }
+}
+
+.col {
+    // background-color: red;
+    height: 40rem;
+}
