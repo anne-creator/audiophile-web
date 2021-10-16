@@ -5,8 +5,8 @@ import {
   Footer
 } from "../../components";
 import { Button, Col, Row } from 'antd';
-import { SwapRightOutlined } from '@ant-design/icons';
-import headphone from '../../assets/shared/image-category-thumbnail-headphones.png';
+import { Card } from '../../components'
+
 
 export const HomePage: React.FC = () => {
   return (<>
@@ -15,38 +15,28 @@ export const HomePage: React.FC = () => {
     <div className={styles['content']}>
       <section className={styles['shop']}>
         <Row gutter={[16, { xs: 32, sm: 64, md: 128, lg: 256 }]}>
-          {/* card 1 */}
-          <Col className={styles['col']} xs={24} sm={24} md={8} >
-            <div className={styles.item}>
-              <div className={styles['item__info']}>
-                <div className={styles['item__title']}>HEADPHONES</div>
-                <Button className={styles['item__button']} type="text" shape="round" size={'small'}>Shop <SwapRightOutlined /></Button>
-              </div>
-            </div>
-            <img className={styles['item__img']} src={headphone} alt="headphone" />
+          <Col className={styles['col']} xs={24} sm={24} md={8}>
+            <Card />
           </Col>
           <Col className={styles['col']} xs={24} sm={24} md={8} >
-            <div className={styles.item}>
-              <div className={styles['item__info']}>
-                <div className={styles['item__title']}>HEADPHONES</div>
-                <Button className={styles['item__button']} type="text" shape="round" size={'small'}>Shop <SwapRightOutlined /></Button>
-              </div>
-            </div>
-            <img className={styles['item__img']} src={headphone} alt="headphone" />
+            <Card />
           </Col>
           <Col className={styles['col']} xs={24} sm={24} md={8} >
-            <div className={styles.item}>
-              <div className={styles['item__info']}>
-                <div className={styles['item__title']}>HEADPHONES</div>
-                <Button className={styles['item__button']} type="text" shape="round" size={'small'}>Shop <SwapRightOutlined /></Button>
-              </div>
-            </div>
-            <img className={styles['item__img']} src={headphone} alt="headphone" />
+            <Card />
           </Col>
-
         </Row>
       </section>
-      <section className={styles['recommand']}>b</section>
+      <section className={styles['recommand']}>
+        <div className={styles.speaker}>
+          <img></img>
+          <div className={styles['speaker__detail']}>
+            <div className={styles['speaker__detail__title']}>ZX9
+              SPEAKER</div>
+            <div className={styles['speaker__detail__subtitle']}>Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.</div>
+            <Button type="primary">SEE PRODUCT</Button>
+          </div>
+        </div>
+      </section>
     </div>
     <Footer />
   </>)

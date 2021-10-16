@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from './Header.module.scss'
 import logo from "../../assets/logo.png";
-import { Button, Row, Col } from "antd";
+import { Button } from "antd";
 import { MenuOutlined } from '@ant-design/icons'
 
 export const Header: React.FC = () => {
