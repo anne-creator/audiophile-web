@@ -49,21 +49,29 @@ export const Header: React.FC = () => {
       {/* nav bar */}
       {
         showLinks ?
-          <div className={styles[showLinks ? 'hidden' : '']} >
-            <div className={styles['item']}>
-              HOME
+          <div>
+            <div className={styles[showLinks ? 'hidden' : '']} >
+              <div className={styles['item']}>
+                HOME
+              </div>
+              <div className={styles['item']}>
+                HEADPHONES
+              </div>
+              <div className={styles['item']}>
+                SPEAKERS
+              </div>
+              <div className={styles['item']}>
+                EARPHONES
+              </div>
+              <div className={styles['item']}>
+                <Button type='primary' className={styles['button__login']} >Sign In</Button>
+              </div>
+              <div className={styles['item']}>
+                <Button className={styles['button__signup']} >Register</Button>
+              </div>
             </div>
-            <div className={styles['item']}>
-              HEADPHONES
-            </div>
-            <div className={styles['item']}>
-              SPEAKERS
-            </div>
-            <div className={styles['item']}>
-              EARPHONES
-            </div>
-          </div> : null
-
+          </div>
+          : null
       }
 
     </div >

@@ -68,7 +68,13 @@
     &__right {
         display: flex;
         align-items: center;
+        justify-content: center;
+        background-color: $color-secondary;
         flex: 1;
+
+        @media screen and (max-width: 1000px) {
+            display: none !important;
+        }
 
         .button__login {
             @include button-basic;
@@ -77,6 +83,7 @@
             color: $color-neutrals-8;
             margin-right: 1.2rem;
             border: none;
+            width: 9rem;
 
             &:hover {
                 background-color: $color-primary-light;
@@ -100,6 +107,7 @@
             color: $color-neutrals-7;
             @include text-style-button;
             color: $color-neutrals-2;
+            width: 9rem;
 
             &:hover {
                 background-color: $color-neutrals-8;
@@ -108,6 +116,7 @@
         }
     }
 }
+
 
 .hidden {
     display: flex;
@@ -130,6 +139,44 @@
 
     @media screen and (min-width: 1000px) {
         display: none;
+    }
+
+    .button__login {
+        @include button-basic;
+        @include text-style-button;
+        background-color: $color-primary;
+        color: $color-neutrals-8;
+        border: none;
+        width: 9rem;
+
+        &:hover {
+            background-color: $color-primary-light;
+        }
+
+        &:active,
+        &:focus {
+            border-color: $color-primary;
+            background: $color-primary;
+            box-shadow: $color-primary;
+        }
+
+        ::selection {
+            color: #fff;
+            background: $color-primary !important;
+        }
+    }
+
+    .button__signup {
+        @include button-basic;
+        color: $color-neutrals-7;
+        @include text-style-button;
+        color: $color-neutrals-2;
+        width: 9rem;
+
+        &:hover {
+            background-color: $color-neutrals-8;
+            color: $color-primary;
+        }
     }
 }
 
