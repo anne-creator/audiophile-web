@@ -1,49 +1,78 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./HomePage.module.scss";
 import {
   Header,
   Footer
 } from "../../components";
-import { Button, Col, Row } from 'antd';
-import { SwapRightOutlined } from '@ant-design/icons';
-import headphone from '../../assets/shared/image-category-thumbnail-headphones.png';
+import { Spin, Col, Row } from 'antd';
+import { Card } from '../../components';
+import axios from 'axios'
+// import { useDispatch } from "react-redux";
+// import { getCategories } from '../../redux/categories/slice';
+// import { useSelector } from "../../redux/hooks";
 
-export const HomePage: React.FC = () => {
+interface Props { }
+interface State {
+  name: string,
+  ImageSrc: string,
+}
+
+export const HomePage: React.FC = (Props) => {
+  const [list, setList] = useState<any>([]);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<string>()
+
+  useEffect(() => {
+    const getData = async () => {
+      setLoading(true);
+      try {
+        const { data }: any = await axios.get(
+          'https://www.fastmock.site/mock/456923cc3f54559b181a0f418788fccc/api/categories'
+        )
+        setList(data.data);
+      } catch (e: any) {
+        setError(e.message)
+      }
+    }
+    getData();
+  }, [])
+  // const loading = useSelector((state) => state.categories.loading);
+  // const error = useSelector((state) => state.categories.error);
+  // const categoriesLists = useSelector(s => s.categories.data)
+  // const dispatch = useDispatch();
+  /** Get category API from store*/
+  // useEffect(() => {
+  //   dispatch(getCategories())
+  // }, [])
+  // if (loading) {
+  //   return (
+  //     <Spin
+  //       size="large"
+  //       style={{
+  //         marginTop: 200,
+  //         marginBottom: 200,
+  //         marginLeft: "auto",
+  //         marginRight: "auto",
+  //         width: "100%",
+  //       }}
+  //     />
+  //   );
+  // }
+  // if (error) {
+  //   return <div>网站出错：{error}</div>;
+  // }
   return (<>
     <Header />
     {/* content */}
     <div className={styles['content']}>
       <section className={styles['shop']}>
         <Row gutter={[16, { xs: 32, sm: 64, md: 128, lg: 256 }]}>
-          {/* card 1 */}
-          <Col className={styles['col']} xs={24} sm={24} md={8} >
-            <div className={styles.item}>
-              <div className={styles['item__info']}>
-                <div className={styles['item__title']}>HEADPHONES</div>
-                <Button className={styles['item__button']} type="text" shape="round" size={'small'}>Shop <SwapRightOutlined /></Button>
-              </div>
-            </div>
-            <img className={styles['item__img']} src={headphone} alt="headphone" />
-          </Col>
-          <Col className={styles['col']} xs={24} sm={24} md={8} >
-            <div className={styles.item}>
-              <div className={styles['item__info']}>
-                <div className={styles['item__title']}>HEADPHONES</div>
-                <Button className={styles['item__button']} type="text" shape="round" size={'small'}>Shop <SwapRightOutlined /></Button>
-              </div>
-            </div>
-            <img className={styles['item__img']} src={headphone} alt="headphone" />
-          </Col>
-          <Col className={styles['col']} xs={24} sm={24} md={8} >
-            <div className={styles.item}>
-              <div className={styles['item__info']}>
-                <div className={styles['item__title']}>HEADPHONES</div>
-                <Button className={styles['item__button']} type="text" shape="round" size={'small'}>Shop <SwapRightOutlined /></Button>
-              </div>
-            </div>
-            <img className={styles['item__img']} src={headphone} alt="headphone" />
-          </Col>
-
+          {list.map((item) => {
+            return (
+              <Col className={styles['col']} xs={24} sm={24} md={8} >
+                <Card title={item.title} imageSrc={item.imageSrc} />
+              </Col>)
+          })}
         </Row>
       </section>
       <section className={styles['recommand']}>b</section>

@@ -1,0 +1,41 @@
+@import '../../index.scss';
+
+.item {
+    position: relative;
+
+    &__info {
+        height: 20.4rem;
+        background-color: $color-neutrals-7;
+        position: absolute;
+        width: 100%;
+        margin-top: 8rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        border-radius: 8px;
+        padding-bottom: 2.08vw;
+        z-index: 1;
+    }
+
+    &__title {
+        @include text-style-h6;
+        color: $color-secondary;
+        margin-bottom: 1.04vw;
+    }
+
+    &__button {
+        color: $color-primary !important;
+
+    }
+
+    &__img {
+        position: absolute;
+        // width: 12.3rem;
+        height: 16rem;
+        object-fit: cover;
+        left: 50%;
+        transform: translate(-50%, 0);
+        z-index: 2;
+    }
+}
