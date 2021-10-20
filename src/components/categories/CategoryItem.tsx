@@ -1,18 +1,15 @@
 import React from 'react';
-import styles from './Card.module.scss'
-import { Button, Col, Row } from 'antd';
+import styles from './CategoryItem.module.scss'
+import { Button } from 'antd';
 import { SwapRightOutlined } from '@ant-design/icons'
-import headphone from '../../assets/shared/image-category-thumbnail-headphones.png';
 
 interface PropsType {
-    // id: number;
     title: string;
     imageSrc: string
 }
 
-export const Card: React.FC<PropsType> = ({ title, imageSrc }) => {
-    // console.log(title);
-    // console.log(ImageSrc);
+export const CategoryItem: React.FC<PropsType> = ({ title, imageSrc }) => {
+
     return (<>
         <div className={styles.item}>
             <div className={styles['item__info']}>
