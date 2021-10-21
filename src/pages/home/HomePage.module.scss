@@ -2,41 +2,10 @@
 
 .content {
     min-height: 50vh;
-    margin: 12rem 11.6vw 20rem 11.7vw;
+    margin: 12rem 11.6vw 20rem 11.6vw;
 }
 
 .shop {
     margin: 12rem 0 16.8rem 0;
     min-height: 28.4rem;
-    background-color: red;
-}
-
-
-
-.col {
-    height: 40rem;
-}
-
-.recommand {
-    flex: display;
-    flex-direction: column;
-    gap: 4.8rem 0;
-
-    .speaker {
-        min-height: 56rem;
-        background-color: $color-primary;
-
-        img {
-            flex: 1;
-        }
-
-        &__detail {
-            &__title {
-                @include text-style-h1;
-                color: white;
-                width: max(32px, 18.1vw);
-            }
-        }
-    }
-
 }
