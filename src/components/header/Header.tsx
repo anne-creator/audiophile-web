@@ -4,6 +4,7 @@ import logo from "../../assets/logo.png";
 import { Button } from "antd";
 import { MenuOutlined } from '@ant-design/icons'
 
+
 export const Header: React.FC = () => {
   const [showLinks, setShowLinks] = useState(false);
 
@@ -64,7 +65,7 @@ export const Header: React.FC = () => {
                 EARPHONES
               </div>
               <div className={styles['item']}>
-                <Button type='primary' className={styles['button__login']} >Sign In</Button>
+                <Button type='primary' className={styles['button__login']} onClick={() => history.push('')} >Sign In</Button>
               </div>
               <div className={styles['item']}>
                 <Button className={styles['button__signup']} >Register</Button>
@@ -73,7 +74,6 @@ export const Header: React.FC = () => {
           </div>
           : null
       }
-
     </div >
   );
 }
