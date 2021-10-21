@@ -16,8 +16,9 @@ export const Categories: React.FC = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        const fetchData = () => { dispatch(giveMeDataActionCreator()) }
+        const fetchData = () => dispatch(giveMeDataActionCreator())
         fetchData();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     if (error) {
@@ -42,7 +43,7 @@ export const Categories: React.FC = () => {
         <Row className={styles['category']} gutter={[16, { xs: 32, sm: 64, md: 128, lg: 256 }]}>
             {itemList.map((item) => {
                 return (
-                    <Col className={styles['col']} xs={24} sm={24} md={8} >
+                    <Col key={item.id} className={styles['col']} xs={24} sm={24} md={8} >
                         <CategoryItem title={item.title} imageSrc={item.imageSrc} />
                     </Col>)
             })}
