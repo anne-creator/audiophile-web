@@ -1,10 +1,8 @@
 import React, { useEffect } from 'react'
-import { Row, Col } from 'antd'
+import { Row, Col, Spin } from 'antd'
 import styles from './Categories.module.scss'
-import { RootState } from "../../redux/store";
 import { useSelector } from "../../redux/hooks";
 import { useDispatch } from "react-redux";
-import { Dispatch } from "redux";
 import { CategoryItem } from './CategoryItem'
 import { giveMeDataActionCreator } from '../../redux/categories/categoriesActions';
 
@@ -21,6 +19,25 @@ export const Categories: React.FC = () => {
         const fetchData = () => { dispatch(giveMeDataActionCreator()) }
         fetchData();
     }, [])
+
+    if (error) {
+        return <div>{error}</div>
+    }
+    if (loading) {
+        return (
+            <Spin
+                size="large"
+                style={{
+                    marginTop: 200,
+                    marginBottom: 200,
+                    marginLeft: "auto",
+                    marginRight: "auto",
+                    width: "100%",
+                }}
+            />
+        );
+    }
+
     return (<>
         <Row className={styles['category']} gutter={[16, { xs: 32, sm: 64, md: 128, lg: 256 }]}>
             {itemList.map((item) => {
