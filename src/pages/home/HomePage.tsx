@@ -7,7 +7,6 @@ import {
 import { Categories } from '../../components';
 
 export const HomePage: React.FC = () => {
-
   return (<>
     <Header />
     {/* content */}

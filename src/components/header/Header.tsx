@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import styles from './Header.module.scss'
 import logo from "../../assets/logo.png";
 import { Button } from "antd";
-import { MenuOutlined } from '@ant-design/icons'
+import { MenuOutlined } from '@ant-design/icons';
+import { Link } from 'react-router-dom';
 
 
 export const Header: React.FC = () => {
   const [showLinks, setShowLinks] = useState(false);
-
+  // const history = useHistory();
   return (
     <div className={styles["app-header"]}>
       <div className={styles["header"]}>
@@ -42,8 +43,10 @@ export const Header: React.FC = () => {
         {/* 3.right */}
         <div>
           <div className={styles['header__right']}>
-            <Button type='primary' className={styles['button__login']} >Sign In</Button>
-            <Button className={styles['button__signup']} >Register</Button>
+            <Link to={`signIn`}>
+              <Button type='primary' className={styles['button__login']} >Sign In</Button></Link>
+            <Link to={`register`}>
+              <Button className={styles['button__signup']} >Register</Button></Link>
           </div>
         </div>
       </div>
@@ -65,10 +68,12 @@ export const Header: React.FC = () => {
                 EARPHONES
               </div>
               <div className={styles['item']}>
-                <Button type='primary' className={styles['button__login']} onClick={() => history.push('')} >Sign In</Button>
+                <Link to={`signIn`} >
+                  <Button type='primary' className={styles['button__login']} >Sign In</Button></Link>
               </div>
               <div className={styles['item']}>
-                <Button className={styles['button__signup']} >Register</Button>
+                <Link to={`register`}>
+                  <Button className={styles['button__signup']} >Register</Button></Link>
               </div>
             </div>
           </div>

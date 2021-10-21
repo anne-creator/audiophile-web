@@ -33,21 +33,29 @@
             padding-left: 0;
             position: relative;
 
+
             .item {
                 color: white;
                 @include text-style-nav;
                 transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
                 cursor: pointer;
                 padding: 0.5rem;
+                border-radius: 10px;
 
                 @media screen and (max-width: 1000px) {
                     display: none;
                 }
 
                 &:hover {
+                    color: $color-primary-light;
+                    border-bottom: 1px solid $color-primary-light;
+                    // background-color: $color-primary;
+                }
+
+                &:active {
                     color: $color-primary;
-                    // border-bottom: 2px solid $color-primary;     
-                    background-color: #fff;
+                    // border-bottom: 2px solid $color-primary-light;
+                    transform: translateY(2px);
                 }
             }
         }
@@ -141,6 +149,10 @@
         display: none;
     }
 
+    .signin-link {
+        padding-bottom: 1rem;
+    }
+
     .button__login {
         @include button-basic;
         @include text-style-button;
@@ -184,8 +196,4 @@
     .ant-meun-item-active {
         color: $color-primary !important;
     }
-}
-
-.ant-menu-item:hover {
-    color: red;
 }
