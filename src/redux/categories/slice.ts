@@ -17,7 +17,6 @@ export const getCategories = createAsyncThunk(
     async(parameters: {},thunkAPI)=>   {
         const {data}:any = await axios.get(
             `https://www.fastmock.site/mock/456923cc3f54559b181a0f418788fccc/api/categories`,
-            // {headers:{'response-status':'400'}}
             )
         return data;
     }
