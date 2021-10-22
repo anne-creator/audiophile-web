@@ -8,15 +8,17 @@ import { getCategories } from '../../redux/categories/slice'
 export const Categories: React.FC = () => {
 
     /**fetch data from store */
-    const itemList = useSelector(s => s.categoreis.data);
+    const categories = useSelector(s => s.categoreis.data);
     const error = useSelector(s => s.categoreis.error);
     const loading = useSelector(s => s.categoreis.loading);
-    console.log(itemList);
+    // console.log(categories);
+    // console.log(error);
+    // console.log(loading);
 
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getCategories())
+        dispatch(getCategories({}))
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
@@ -40,7 +42,7 @@ export const Categories: React.FC = () => {
 
     return (<>
         <Row className={styles['category']} gutter={[16, { xs: 32, sm: 64, md: 128, lg: 256 }]}>
-            {itemList.map((item) => {
+            {categories.map((item) => {
                 return (
                     <Col key={item.id} className={styles['col']} xs={24} sm={24} md={8} >
                         <CategoryItem title={item.title} imageSrc={item.imageSrc} />

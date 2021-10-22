@@ -1,21 +1,24 @@
 import { createSlice, PayloadAction, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
-
+axios.defaults.headers.post['Content-type']='application/json'
 interface categoriesState {
     loading: boolean;
     error: string | null;
-    data: any;
+    data: any[];
   }
   const initialState: categoriesState ={
       loading: true,
       error: null,
-      data:null,
+      data:[],
   }
 
 export const getCategories = createAsyncThunk(
     'categories/getCategoreis',
-    async({}, thunkAPI)=>   {
-        const {data} = await axios.get(`https://www.fastmock.site/mock/456923cc3f54559b181a0f418788fccc/api/categories`)
+    async(parameters: {},thunkAPI)=>   {
+        const {data}:any = await axios.get(
+            `https://www.fastmock.site/mock/456923cc3f54559b181a0f418788fccc/api/categories`,
+            // {headers:{'response-status':'400'}}
+            )
         return data;
     }
 )
@@ -29,7 +32,7 @@ export const categoriesSlice = createSlice({
         state.loading = true;
       },
       [getCategories.fulfilled.type]: (state, action) => {
-        state.data = action.payload.data;
+        state.data = action.payload;
         state.loading = false;
         state.error = null;
       },
