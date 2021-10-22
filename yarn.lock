@@ -10165,7 +10165,7 @@
   "resolved" "https://registry.npmjs.org/react-is/-/react-is-17.0.1.tgz"
   "version" "17.0.1"
 
-"react-redux@^7.2.1", "react-redux@^7.2.5":
+"react-redux@^7.2.1":
   "integrity" "sha512-Dt29bNyBsbQaysp6s/dN0gUodcq+dVKKER8Qv82UrpeygwYeX1raTtil7O/fftw/rFqzaf6gJhDZRkkZnn6bjg=="
   "resolved" "https://registry.npmjs.org/react-redux/-/react-redux-7.2.5.tgz"
   "version" "7.2.5"

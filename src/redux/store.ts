@@ -1,12 +1,15 @@
-import { createStore, combineReducers, applyMiddleware } from 'redux';
-import categoriesReducer from "./categories/categoriesReducer";
-import thunk from "redux-thunk";
+import { configureStore, combineReducers } from '@reduxjs/toolkit';
+import { categoriesSlice } from "./categories/slice";
 
 const rootReducer = combineReducers({
-    categoreis: categoriesReducer,
+    categoreis: categoriesSlice.reducer,
 })
 // export type RootState = ReturnType<typeof store.getState>
 export type RootState = ReturnType<typeof rootReducer>
 
-const store = createStore(rootReducer, applyMiddleware(thunk));
+const store = configureStore({
+    reducer: rootReducer,
+    middleware: (getDefaultMiddleware) =>[...getDefaultMiddleware()],
+    devTools: true,
+  });
 export default store;

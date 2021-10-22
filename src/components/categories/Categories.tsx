@@ -4,20 +4,19 @@ import styles from './Categories.module.scss'
 import { useSelector } from "../../redux/hooks";
 import { useDispatch } from "react-redux";
 import { CategoryItem } from './CategoryItem'
-import { giveMeDataActionCreator } from '../../redux/categories/categoriesActions';
-
+import { getCategories } from '../../redux/categories/slice'
 export const Categories: React.FC = () => {
 
     /**fetch data from store */
-    const itemList = useSelector(s => s.categoreis.itemList);
+    const itemList = useSelector(s => s.categoreis.data);
     const error = useSelector(s => s.categoreis.error);
     const loading = useSelector(s => s.categoreis.loading);
+    console.log(itemList);
 
     const dispatch = useDispatch();
 
     useEffect(() => {
-        const fetchData = () => dispatch(giveMeDataActionCreator())
-        fetchData();
+        dispatch(getCategories())
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
