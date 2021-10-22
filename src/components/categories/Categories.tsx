@@ -11,12 +11,8 @@ export const Categories: React.FC = () => {
     const categories = useSelector(s => s.categoreis.data);
     const error = useSelector(s => s.categoreis.error);
     const loading = useSelector(s => s.categoreis.loading);
-    // console.log(categories);
-    // console.log(error);
-    // console.log(loading);
-
     const dispatch = useDispatch();
-
+    console.log(error);
     useEffect(() => {
         dispatch(getCategories({}))
         // eslint-disable-next-line react-hooks/exhaustive-deps

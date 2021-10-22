@@ -32,7 +32,7 @@ export const categoriesSlice = createSlice({
         state.loading = true;
       },
       [getCategories.fulfilled.type]: (state, action) => {
-        state.data = action.payload;
+        state.data = action.payload.data;
         state.loading = false;
         state.error = null;
       },
