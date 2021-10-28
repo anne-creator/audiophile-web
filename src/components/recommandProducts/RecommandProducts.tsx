@@ -1,10 +1,15 @@
 import React, { useEffect } from 'react';
 import { Col, Row, Button } from 'antd'
 import styles from './RecommandProducts.module.scss'
-
 import { useSelector } from '../../redux/hooks'
+import { useDispatch } from "react-redux";
+import { getProductList } from '../../redux/productList/slice'
 
 export const RecommandProducts: React.FC = () => {
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(getProductList({}));
+    }, []);
     const productList = useSelector(s => s.productList.data);
     return (<>
         <div>
@@ -30,6 +35,9 @@ export const RecommandProducts: React.FC = () => {
             <Row className={styles['ZX7']}>
                 <Col className={styles['ZX7__left']}>
                     <div className={styles['ZX7__detail']}>
+                        {productList[4]?.ifNew ? (
+                            <div className={styles['ZX9__detail__new']}>NEW PRODUCT</div>
+                        ) : (null)}
                         <h1>ZX7 SPEAKER</h1>
                         <Button className={styles['button__secondary']}>SEE PRODUCT</Button>
                     </div>
@@ -42,6 +50,9 @@ export const RecommandProducts: React.FC = () => {
                 </div>
                 <div className={styles['YX1__right']}>
                     <div className={styles['YX1__detail']}>
+                        {productList[5]?.ifNew ? (
+                            <div className={styles['ZX9__detail__new']}>NEW PRODUCT</div>
+                        ) : (null)}
                         <h1>ZX7 SPEAKER</h1>
                         <Button className={styles['button__secondary']}>SEE PRODUCT</Button>
                     </div>

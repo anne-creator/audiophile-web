@@ -5,8 +5,14 @@ var react_1 = require("react");
 var antd_1 = require("antd");
 var RecommandProducts_module_scss_1 = require("./RecommandProducts.module.scss");
 var hooks_1 = require("../../redux/hooks");
+var react_redux_1 = require("react-redux");
+var slice_1 = require("../../redux/productList/slice");
 exports.RecommandProducts = function () {
-    var _a, _b, _c, _d, _e, _f, _g, _h;
+    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
+    var dispatch = react_redux_1.useDispatch();
+    react_1.useEffect(function () {
+        dispatch(slice_1.getProductList({}));
+    }, []);
     var productList = hooks_1.useSelector(function (s) { return s.productList.data; });
     return (react_1["default"].createElement(react_1["default"].Fragment, null,
         react_1["default"].createElement("div", null,
@@ -27,14 +33,16 @@ exports.RecommandProducts = function () {
             react_1["default"].createElement(antd_1.Row, { className: RecommandProducts_module_scss_1["default"]['ZX7'] },
                 react_1["default"].createElement(antd_1.Col, { className: RecommandProducts_module_scss_1["default"]['ZX7__left'] },
                     react_1["default"].createElement("div", { className: RecommandProducts_module_scss_1["default"]['ZX7__detail'] },
+                        ((_e = productList[4]) === null || _e === void 0 ? void 0 : _e.ifNew) ? (react_1["default"].createElement("div", { className: RecommandProducts_module_scss_1["default"]['ZX9__detail__new'] }, "NEW PRODUCT")) : (null),
                         react_1["default"].createElement("h1", null, "ZX7 SPEAKER"),
                         react_1["default"].createElement(antd_1.Button, { className: RecommandProducts_module_scss_1["default"]['button__secondary'] }, "SEE PRODUCT"))),
-                react_1["default"].createElement("img", { className: RecommandProducts_module_scss_1["default"]['ZX7__img'], src: (_f = (_e = productList[4]) === null || _e === void 0 ? void 0 : _e.imageSrcList) === null || _f === void 0 ? void 0 : _f.recommand, alt: "ZX9 product" })),
+                react_1["default"].createElement("img", { className: RecommandProducts_module_scss_1["default"]['ZX7__img'], src: (_g = (_f = productList[4]) === null || _f === void 0 ? void 0 : _f.imageSrcList) === null || _g === void 0 ? void 0 : _g.recommand, alt: "ZX9 product" })),
             react_1["default"].createElement("div", { className: RecommandProducts_module_scss_1["default"]['YX1'] },
                 react_1["default"].createElement("div", { className: RecommandProducts_module_scss_1["default"]['YX1__left'] },
-                    react_1["default"].createElement("img", { className: RecommandProducts_module_scss_1["default"]['YX1__img'], src: (_h = (_g = productList[5]) === null || _g === void 0 ? void 0 : _g.imageSrcList) === null || _h === void 0 ? void 0 : _h.recommand, alt: "ZX9 product" })),
+                    react_1["default"].createElement("img", { className: RecommandProducts_module_scss_1["default"]['YX1__img'], src: (_j = (_h = productList[5]) === null || _h === void 0 ? void 0 : _h.imageSrcList) === null || _j === void 0 ? void 0 : _j.recommand, alt: "ZX9 product" })),
                 react_1["default"].createElement("div", { className: RecommandProducts_module_scss_1["default"]['YX1__right'] },
                     react_1["default"].createElement("div", { className: RecommandProducts_module_scss_1["default"]['YX1__detail'] },
+                        ((_k = productList[5]) === null || _k === void 0 ? void 0 : _k.ifNew) ? (react_1["default"].createElement("div", { className: RecommandProducts_module_scss_1["default"]['ZX9__detail__new'] }, "NEW PRODUCT")) : (null),
                         react_1["default"].createElement("h1", null, "ZX7 SPEAKER"),
                         react_1["default"].createElement(antd_1.Button, { className: RecommandProducts_module_scss_1["default"]['button__secondary'] }, "SEE PRODUCT")))))));
 };

@@ -1,10 +1,20 @@
 @import "../../index.scss";
 
+.title {
+    background-color: $color-secondary;
+    color: white;
+    height: 18.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0;
+
+}
+
 .category {
     min-height: 100vh;
+    margin: 12rem 11.6vw 20rem 11.6vw;
+    margin: 12rem 11.6vw 20rem 11.6vw;
 
-    &__title {
-        background-color: $color-secondary;
 
-    }
 }

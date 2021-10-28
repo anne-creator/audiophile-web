@@ -4,13 +4,16 @@ import {
   RecommandProducts
 } from "../../components";
 import { MainLayout } from '../../layouts/mainLayout';
+import styles from './HomePage.module.scss'
 
 export const HomePage: React.FC = () => {
   return (<>
     <div >
       <MainLayout>
-        <Categories />
-        <RecommandProducts />
+        <div className={styles['shop']}>
+          <Categories />
+          <RecommandProducts />
+        </div>
       </MainLayout>
     </div >
 
