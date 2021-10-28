@@ -18,6 +18,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+  padding-right: 7.5%;
+}
+@media only screen and (max-width: 992px) {
+  .story__content {
+    padding-right: 0;
+    margin-bottom: 5vw;
+    text-align: center;
+  }
 }
 .story__title {
   font-size: 40px;
@@ -27,6 +36,12 @@
   line-height: 44px;
   letter-spacing: 1.43px;
   text-decoration: none;
+  margin-bottom: 3.2rem;
+}
+@media only screen and (max-width: 992px) {
+  .story__title {
+    width: 60%;
+  }
 }
 .story__title span {
   color: #D87D4A;
@@ -36,7 +51,23 @@
   font-family: "Manrope";
   line-height: 25px;
   text-decoration: none;
+  text-align: left;
+}
+@media only screen and (max-width: 992px) {
+  .story__detail {
+    width: 80%;
+  }
+}
+.story__img-container {
+  padding-left: 2.5%;
+}
+@media only screen and (max-width: 992px) {
+  .story__img-container {
+    padding-left: 0;
+  }
 }
 .story__img {
   border-radius: 8px;
+  height: 100%;
+  width: 100%;
 }
