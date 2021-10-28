@@ -14,8 +14,9 @@ export const Footer: React.FC = () => {
             <div className={styles['content__left']}>
                <div className={styles['content__left__img']}>
                   <img className={styles['content__left__']} src={logo} alt="logo" />
-               </div>               <p className={styles['content__left__description']}>Audiophile is an all in one stop to fulfill your audio needs. We're a small team of music lovers and sound specialists who are devoted to helping you get the most out of personal audio. Come and visit our demo facility - we’re open 7 days a week.</p>
-               <p className={styles['content__left__conpyright']}>Copyright 2021. All Rights Reserved</p>
+               </div>
+               <p className={styles['content__left__description']}>Audiophile is an all in one stop to fulfill your audio needs. We're a small team of music lovers and sound specialists who are devoted to helping you get the most out of personal audio. Come and visit our demo facility - we’re open 7 days a week.</p>
+               <p className={styles['content__left__copyright']}>Copyright 2021. All Rights Reserved</p>
             </div>
             <div className={styles['content__right']}>
                <div className={styles['content__right__nav']}>

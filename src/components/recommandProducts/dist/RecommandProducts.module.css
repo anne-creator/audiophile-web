@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet');
+:root {
+  font-size: 62.5%;
+  font-family: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.ZX9 {
+  width: 100%;
+  max-height: 56rem;
+  background: url(../../assets/home/pattern-circles.png) no-repeat, #D87D4A;
+  overflow: hidden;
+  border-radius: 8px;
+  justify-content: center;
+  margin: 0;
+}
+.ZX9__left {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.ZX9__img {
+  width: 41rem;
+  height: 49.3rem;
+  background-position: cover;
+  transform: translateY(8rem) !important;
+  margin-top: 2rem;
+}
+.ZX9__right {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10rem 0;
+}
+.ZX9__detail {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  width: max(30rem, 24.2vw);
+}
+.ZX9__detail__new {
+  font-size: 14px;
+  font-family: "Manrope";
+  font-weight: normal;
+  font-style: normal;
+  letter-spacing: 10px;
+  text-decoration: none;
+  color: #e6e8ec;
+}
+.ZX9__detail__title {
+  font-size: 56px;
+  font-family: "Manrope";
+  font-weight: bolder;
+  font-style: normal;
+  line-height: 58px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  color: #fcfcfd;
+}
+.ZX9__detail__description {
+  font-size: 15px;
+  font-family: "Manrope";
+  line-height: 25px;
+  text-decoration: none;
+  color: #fcfcfd;
+  margin-bottom: max(3rem, 4.5vw);
+}
+
+.ZX7 {
+  width: 100%;
+  height: 46rem;
+  margin: 4.8rem 0;
+  position: relative;
+}
+.ZX7__img {
+  border-radius: 8px;
+  position: absolute;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.ZX7__left {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.ZX7__right {
+  background-color: #f1f1f1;
+}
+.ZX7__detail {
+  position: absolute;
+  z-index: 2;
+  margin-left: 9.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.YX1 {
+  min-height: 3.2rem;
+  display: flex;
+  justify-content: space-between;
+}
+@media only screen and (max-width: 992px) {
+  .YX1 {
+    flex-direction: column;
+  }
+}
+.YX1__left {
+  flex: 1;
+  border-radius: 8px;
+  margin-right: 2.5%;
+}
+@media only screen and (max-width: 992px) {
+  .YX1__left {
+    margin-right: 0;
+    margin-bottom: 3.2rem;
+  }
+}
+.YX1__img {
+  border-radius: 8px;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  margin: 0;
+  border-radius: 8px;
+}
+.YX1__right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-left: 2.5%;
+  background-color: #f1f1f1;
+  border-radius: 8px;
+}
+@media only screen and (max-width: 992px) {
+  .YX1__right {
+    margin-right: 0;
+    padding: 2.5rem 0;
+  }
+}
+.YX1__right__detail {
+  width: 100%;
+  height: 100%;
+}
+
+.button-primary {
+  font-size: 13px;
+  font-family: "Roboto";
+  font-weight: bolder;
+  font-style: normal;
+  letter-spacing: 1px;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  border-radius: 10rem;
+  cursor: pointer;
+  background-color: #080d2c !important;
+  color: #fcfcfd;
+  border-radius: 50px !important;
+  width: 16rem !important;
+  height: 4.8rem !important;
+  border: none !important;
+}
+.button-primary:hover {
+  background-color: #1f3864 !important;
+  transform: translateY(-0.3rem) !important;
+}
+.button-primary:active {
+  border-color: #080d2c !important;
+  background: #080d2c !important;
+  transform: translateY(0.3rem) !important;
+}
+
+.button__secondary {
+  font-size: 13px;
+  font-family: "Roboto";
+  font-weight: bolder;
+  font-style: normal;
+  letter-spacing: 1px;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  border-radius: 10rem;
+  cursor: pointer;
+  background-color: transparent !important;
+  color: #080d2c;
+  border-radius: 50px !important;
+  width: 16rem !important;
+  height: 4.8rem !important;
+  border: 1px solid #080d2c !important;
+}
+.button__secondary:hover {
+  background-color: #080d2c !important;
+  transform: translateY(-0.3rem) !important;
+  color: #fcfcfd !important;
+}
+.button__secondary:active {
+  background: #080d2c !important;
+  transform: translateY(0.3rem) !important;
+  color: #fcfcfd !important;
+}

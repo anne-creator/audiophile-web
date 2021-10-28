@@ -1,41 +1,41 @@
 import { createSlice, PayloadAction, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
 axios.defaults.headers.post['Content-type']='application/json'
-interface categoriesState {
+interface productListState {
     loading: boolean;
     error: string | null;
     data: any[];
   }
-  const initialState: categoriesState ={
+  const initialState: productListState ={
       loading: true,
       error: null,
       data:[],
   }
 
-export const getCategories = createAsyncThunk(
-    'categories/getCategoreis',
-    async(categoryId: number,thunkAPI)=>   {
-    const {data}:any = await axios.get(
-        `https://www.fastmock.site/mock/456923cc3f54559b181a0f418788fccc/api/categories/${categoryId}`,
-        )
+export const getProductList = createAsyncThunk(
+    'productList/getProductList',
+    async(parameters: {},thunkAPI)=>   {
+        const {data}:any = await axios.get(
+            `https://www.fastmock.site/mock/456923cc3f54559b181a0f418788fccc/api/productDetail`,
+            )
         return data;
     }
 )
-export const categoriesSlice = createSlice({
-    name: "categories",
+export const productListSlice = createSlice({
+    name: "productList",
     initialState,
     reducers: {
     },
     extraReducers: {
-      [getCategories.pending.type]: (state) => {
+      [getProductList.pending.type]: (state) => {
         state.loading = true;
       },
-      [getCategories.fulfilled.type]: (state, action) => {
+      [getProductList.fulfilled.type]: (state, action) => {
         state.data = action.payload.data;
         state.loading = false;
         state.error = null;
       },
-      [getCategories.rejected.type]: (state, action: PayloadAction<string | null>) => {
+      [getProductList.rejected.type]: (state, action: PayloadAction<string | null>) => {
         state.loading = false;
         state.error = action.payload;
       },

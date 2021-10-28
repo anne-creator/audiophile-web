@@ -44,9 +44,11 @@ export const Header: React.FC = () => {
         <div>
           <div className={styles['header__right']}>
             <Link to={`signIn`}>
-              <Button type='primary' className={styles['button__login']} >Sign In</Button></Link>
+              <Button type='primary' className={styles['button__login']} >Sign In</Button>
+            </Link>
             <Link to={`register`}>
-              <Button className={styles['button__signup']} >Register</Button></Link>
+              <Button className={styles['button__signup']} >Register</Button>
+            </Link>
           </div>
         </div>
       </div>

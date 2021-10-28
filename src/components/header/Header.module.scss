@@ -154,11 +154,9 @@
     }
 
     .button__login {
-        @include button-basic;
         @include text-style-button;
         background-color: $color-primary;
         color: $color-neutrals-8;
-        border: none;
         width: 9rem;
 
         &:hover {
@@ -169,31 +167,31 @@
         &:focus {
             border-color: $color-primary;
             background: $color-primary;
-            box-shadow: $color-primary;
-        }
-
-        ::selection {
-            color: #fff;
-            background: $color-primary !important;
         }
     }
 
     .button__signup {
-        @include button-basic;
-        color: $color-neutrals-7;
+        // @include button-basic;
+        // color: $color-neutrals-7;
         @include text-style-button;
-        color: $color-neutrals-2;
-        width: 9rem;
+        color: $color-primary-dark;
+        // width: 9rem;
 
         &:hover {
             background-color: $color-neutrals-8;
-            color: $color-primary;
+            color: $color-secondary;
+            border-color: $color-primary
+        }
+
+        &:active {
+            color: $color-primary-dark;
+            transform: ranslateY(.2rem);
         }
     }
 }
 
-.ant-menu-item {
-    .ant-meun-item-active {
-        color: $color-primary !important;
-    }
-}
+// .ant-menu-item {
+//     .ant-meun-item-active {
+//         color: $color-primary !important;
+//     }
+// }

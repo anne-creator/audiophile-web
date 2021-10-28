@@ -1,7 +1,7 @@
 @import '../../index.scss';
 
 .footer {
-  padding: 7.5rem 16.5rem 4.8rem 16.5rem;
+  padding: 7.5rem 11.45rem 4.8rem 11.45rem;
   background-color: $color-secondary;
   color: white;
   min-height: 36.5rem;
@@ -10,13 +10,15 @@
     display: flex;
     min-height: 24.2rem;
 
+    @media only screen and (max-width: 992px) {
+      flex-direction: column;
+    }
 
     &__left {
       display: flex;
       flex-direction: column;
       justify-content: space-around;
       align-items: flex-start;
-      width: 50%;
       flex: 1;
 
       &__img {
@@ -26,10 +28,16 @@
 
       &__description {
         @include text-style-light;
+        color: $color-neutrals-5;
+
+        @media only screen and (max-width: 992px) {
+          padding: 1.5rem 0 0 0;
+        }
       }
 
       &__copyright {
         @include text-style-note;
+        color: $color-neutrals-5;
       }
     }
 
@@ -40,13 +48,48 @@
       align-items: flex-end;
       flex: 1;
 
+      @media only screen and (max-width: 992px) {
+        align-items: flex-start;
+        margin-top: 2.5rem;
+      }
+
       &__nav {
         @include text-style-nav;
-        margin-left: 2.4rem;
+        // margin-left: 2.4rem;
         margin-bottom: 10.5rem;
+        display: flex;
+        flex-wrap: wrap;
+
+        @media only screen and (max-width: 992px) {
+          margin-bottom: 2.5rem;
+
+        }
 
         &>span {
           margin-left: 3.4rem;
+          color: white;
+          @include text-style-nav;
+          transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+          cursor: pointer;
+          padding: 0.5rem;
+          border-radius: 10px;
+
+          @media only screen and (max-width: 992px) {
+            margin-right: 2rem;
+            margin-left: 0;
+          }
+
+          &:hover {
+            color: $color-primary-light;
+            border-bottom: 1px solid $color-primary-light;
+            // background-color: $color-primary;
+          }
+
+          &:active {
+            color: $color-primary;
+            // border-bottom: 2px solid $color-primary-light;
+            transform: translateY(2px);
+          }
         }
       }
 
@@ -55,6 +98,12 @@
           margin-left: 1.6rem;
           width: 2.4rem;
           height: 2.4rem;
+
+          cursor: pointer;
+
+          @media only screen and (max-width: 992px) {
+            margin-right: 0.5rem;
+          }
         }
       }
     }

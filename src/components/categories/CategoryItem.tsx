@@ -4,11 +4,12 @@ import { Button } from 'antd';
 import { SwapRightOutlined } from '@ant-design/icons'
 
 interface PropsType {
+    categoryId: number;
     title: string;
-    imageSrc: string
+    imageSrc: string;
 }
 
-export const CategoryItem: React.FC<PropsType> = ({ title, imageSrc }) => {
+export const CategoryItem: React.FC<PropsType> = ({ categoryId, title, imageSrc }) => {
 
     return (<>
         <div className={styles.item}>

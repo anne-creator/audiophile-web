@@ -1,0 +1,10 @@
+@import "../../index.scss";
+
+.category {
+    min-height: 100vh;
+
+    &__title {
+        background-color: $color-secondary;
+
+    }
+}

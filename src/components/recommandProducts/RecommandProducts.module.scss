@@ -1,0 +1,193 @@
+@import '../../index.scss';
+
+.ZX9 {
+    width: 100%;
+    max-height: 56rem;
+    background: url(../../assets/home/pattern-circles.png) no-repeat, $color-primary;
+    overflow: hidden;
+    border-radius: 8px;
+    justify-content: center;
+    margin: 0;
+
+    //left
+    &__left {
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+    }
+
+    &__img {
+        width: 41rem;
+        height: 49.3rem;
+        background-position: cover;
+        transform: translateY(8rem) !important;
+        margin-top: 2rem;
+    }
+
+    &__right {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10rem 0;
+    }
+
+    &__detail {
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        width: max(30rem, 24.2vw);
+
+        &__new {
+            @include text-style-new-product;
+            color: $color-neutrals-6;
+        }
+
+        &__title {
+            @include text-style-h1;
+            color: $color-neutrals-8;
+        }
+
+        &__description {
+            @include text-style-title;
+            color: $color-neutrals-8;
+            margin-bottom: max(3rem, 4.5vw);
+        }
+    }
+}
+
+.ZX7 {
+    width: 100%;
+    height: 46rem;
+    margin: 4.8rem 0;
+    position: relative;
+
+    &__img {
+        border-radius: 8px;
+        position: absolute;
+        z-index: 1;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    &__left {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    &__right {
+        background-color: $color-neutrals-7;
+    }
+
+    &__detail {
+        position: absolute;
+        z-index: 2;
+        margin-left: 9.5rem;
+        top: 50%;
+        transform: translateY(-50%);
+
+    }
+}
+
+.YX1 {
+    min-height: 3.2rem;
+    display: flex;
+    justify-content: space-between;
+
+    @media only screen and (max-width: 992px) {
+        flex-direction: column;
+    }
+
+    &__left {
+        flex: 1;
+        border-radius: 8px;
+        margin-right: 2.5%;
+
+        @media only screen and (max-width: 992px) {
+            margin-right: 0;
+            margin-bottom: 3.2rem;
+        }
+    }
+
+    &__img {
+        border-radius: 8px;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        margin: 0;
+        border-radius: 8px;
+
+
+    }
+
+    &__right {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        margin-left: 2.5%;
+        background-color: $color-neutrals-7;
+        border-radius: 8px;
+
+        @media only screen and (max-width: 992px) {
+            margin-right: 0;
+            padding: 2.5rem 0;
+        }
+
+        &__detail {
+            width: 100%;
+            height: 100%;
+
+        }
+    }
+}
+
+
+.button-primary {
+    @include text-style-button;
+    @include button-basic;
+    background-color: $color-secondary !important;
+    color: $color-neutrals-8;
+    border-radius: 50px !important;
+    width: 16rem !important;
+    height: 4.8rem !important;
+    border: none !important;
+
+    &:hover {
+        background-color: $color-secondary-light !important;
+        transform: translateY(-.3rem) !important;
+    }
+
+    &:active {
+        border-color: $color-secondary !important;
+        background: $color-secondary !important;
+        transform: translateY(0.3rem) !important;
+
+    }
+}
+
+.button__secondary {
+    @include text-style-button;
+    @include button-basic;
+    background-color: transparent !important;
+    color: $color-secondary;
+    border-radius: 50px !important;
+    width: 16rem !important;
+    height: 4.8rem !important;
+    border: 1px solid $color-secondary !important;
+
+    &:hover {
+        background-color: $color-secondary !important;
+        transform: translateY(-.3rem) !important;
+        color: $color-neutrals-8 !important;
+    }
+
+    &:active {
+        background: $color-secondary !important;
+        transform: translateY(0.3rem) !important;
+        color: $color-neutrals-8 !important;
+    }
+}

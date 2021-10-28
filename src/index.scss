@@ -10,14 +10,18 @@ $color-primary-dark: #c6542b;
 $color-primary-light: #fdb97d;
 
 
-$color-secondary: #081b2c;
+$color-secondary: #080d2c;
+$color-secondary-light: #1f3864;
+
+
+
 $color-neutrals-1: rgba(20, 20, 22, 1);
 $color-neutrals-2: rgba(35, 38, 47, 1);
 $color-neutrals-3: rgba(53, 57, 69, 1);
 $color-neutrals-4: rgba(119, 126, 144, 1);
 $color-neutrals-5: rgba(177, 181, 195, 1);
 $color-neutrals-6: rgba(230, 232, 236, 1);
-$color-neutrals-7: rgba(244, 245, 246, 1);
+$color-neutrals-7: rgba(241, 241, 241, 1);
 $color-neutrals-8: rgba(252, 252, 253, 1);
 
 $gap-small: .6rem;
@@ -130,6 +134,15 @@ $gap-small: .6rem;
     line-height: 25px;
     text-decoration: none;
     font-weight: 200;
+}
+
+@mixin text-style-new-product {
+    font-size: 14px;
+    font-family: "Manrope";
+    font-weight: normal;
+    font-style: normal;
+    letter-spacing: 10px;
+    text-decoration: none;
 }
 
 
