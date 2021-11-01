@@ -1,0 +1,24 @@
+@import "../../index.scss";
+
+.may-like-products {
+    margin: 16rem -11.6vw !important;
+
+    &__title {
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+
+    &__grid {
+        width: 100%;
+        min-height: 30rem;
+        display: grid;
+        justify-content: space-between;
+        align-items: flex-start;
+        width: 100%;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        grid-gap: 2rem;
+        background: url(../../assets/home/pattern-circles.png) no-repeat, $color-secondary;
+        padding: 5rem 0;
+
+    }
+}

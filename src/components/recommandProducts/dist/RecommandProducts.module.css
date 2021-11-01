@@ -6,7 +6,7 @@
 
 .ZX9 {
   width: 100%;
-  max-height: 56rem;
+  min-height: 56rem;
   background: url(../../assets/home/pattern-circles.png) no-repeat, #D87D4A;
   overflow: hidden;
   border-radius: 8px;
@@ -45,7 +45,7 @@
   font-style: normal;
   letter-spacing: 10px;
   text-decoration: none;
-  color: #e6e8ec;
+  color: #D87D4A;
 }
 .ZX9__detail__title {
   font-size: 56px;

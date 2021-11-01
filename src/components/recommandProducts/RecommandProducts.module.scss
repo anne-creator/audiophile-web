@@ -2,7 +2,7 @@
 
 .ZX9 {
     width: 100%;
-    max-height: 56rem;
+    min-height: 56rem;
     background: url(../../assets/home/pattern-circles.png) no-repeat, $color-primary;
     overflow: hidden;
     border-radius: 8px;
@@ -40,7 +40,7 @@
 
         &__new {
             @include text-style-new-product;
-            color: $color-neutrals-6;
+            color: $color-primary;
         }
 
         &__title {
@@ -144,7 +144,6 @@
         }
     }
 }
-
 
 .button-primary {
     @include text-style-button;

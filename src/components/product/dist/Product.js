@@ -5,8 +5,7 @@ var react_1 = require("react");
 var Product_module_scss_1 = require("./Product.module.scss");
 var antd_1 = require("antd");
 exports.Product = function (_a) {
-    var productName = _a.productName, ifNew = _a.ifNew, description = _a.description, productImg = _a.productImg;
-    console.log(productImg);
+    var productName = _a.productName, ifNew = _a.ifNew, description = _a.description, productImg = _a.productImg, productPrice = _a.productPrice;
     return (react_1["default"].createElement(react_1["default"].Fragment, null,
         react_1["default"].createElement("div", { className: Product_module_scss_1["default"]['product'] },
             react_1["default"].createElement("div", { className: Product_module_scss_1["default"]['product__img-container'] },

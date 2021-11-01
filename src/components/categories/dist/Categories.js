@@ -19,7 +19,6 @@ exports.Categories = function () {
         dispatch(slice_1.getCategories(0));
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
-    console.log(categories);
     if (error) {
         return react_1["default"].createElement("div", null, error);
     }

@@ -19,7 +19,6 @@ export const Categories: React.FC = () => {
         dispatch(getCategories(0))
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
-    console.log(categories);
     if (error) {
         return <div>{error}</div>
     }

@@ -8,11 +8,10 @@ interface PropsType {
     ifNew: boolean;
     description: string;
     productImg: string;
+    productPrice: string;
 }
 
-export const Product: React.FC<PropsType> = ({ productName, ifNew, description, productImg }) => {
-
-    console.log(productImg);
+export const Product: React.FC<PropsType> = ({ productName, ifNew, description, productImg, productPrice }) => {
     return (
         <>
             <div className={styles['product']}>

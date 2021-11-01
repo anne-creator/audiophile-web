@@ -5,21 +5,19 @@ import { useSelector } from '../../redux/hooks'
 import { MainLayout } from '../../layouts/mainLayout'
 import { Product, Categories, Story } from "../../components";
 import { useDispatch } from "react-redux";
-import { getProductList } from '../../redux/productList/slice'
+import { getProductPromote } from '../../redux/productPromote/slice'
 interface MatchParams {
     categoryId: string;
 }
 export const CategoryPage: React.FC<MatchParams> = (props) => {
     const categories = useSelector(s => s.categoreis.data);
-    const productList = useSelector(s => s.productList.data);
+    const productList = useSelector(s => s.productPromote.data);
     const { categoryId }: any = useParams();
     const item = categories[categoryId - 1];
     const dispatch = useDispatch();
     useEffect(() => {
-        dispatch(getProductList({}));
+        dispatch(getProductPromote({}));
     }, []);
-    console.log(productList);
-
     const products = productList.filter(item => item.categoryId == categoryId)
     return (
         <>
@@ -28,7 +26,7 @@ export const CategoryPage: React.FC<MatchParams> = (props) => {
                 <div className={styles['category']}>
                     {products.map(item => {
                         return (
-                            <Product productName={item.productName} ifNew={item.ifNew} description={item.description} productImg={item.imageSrcList.productImg} />
+                            <Product productName={item?.productName} ifNew={item?.ifNew} description={item?.description} productImg={item?.imageSrcList?.productImg} productPrice={item?.price} />
                         )
                     })}
                     <Categories />
