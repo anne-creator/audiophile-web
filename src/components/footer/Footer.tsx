@@ -4,10 +4,13 @@ import logo from "../../assets/logo.png"
 import fb from "../../assets/fb.png"
 import twitter from "../../assets/twitter.png"
 import ins from "../../assets/ins.png"
-// import { Layout, Typography, Input, Menu, Button, Dropdown } from "antd";
-// import { GlobalOutlined } from "@ant-design/icons";
+import { useSelector } from '../../redux/hooks'
+import { useDispatch } from "react-redux";
+import { getProductPromote } from '../../redux/productPromote/slice'
+import { Link } from 'react-router-dom'
 
 export const Footer: React.FC = () => {
+
    return (<>
       <div className={styles.footer}>
          <div className={styles.content}>
@@ -20,10 +23,18 @@ export const Footer: React.FC = () => {
             </div>
             <div className={styles['content__right']}>
                <div className={styles['content__right__nav']}>
-                  <span>HOME</span>
-                  <span>HEADPHONES</span>
-                  <span>SPEAKERS</span>
-                  <span>EARPHONES</span>
+                  <Link to={'/categories/:categoryId'} className={styles['item']} >
+                     <span>HOME</span>
+                  </Link>
+                  <Link to={'/categories/:categoryId'} className={styles['item']}>
+                     <span>HEADPHONES</span>
+                  </Link>
+                  <Link to={'/categories/:categoryId'} className={styles['item']}>
+                     <span>SPEAKERS</span>
+                  </Link>
+                  <Link to={'/categories/:categoryId'} className={styles['item']}>
+                     <span>EARPHONES</span>
+                  </Link>
                </div>
                <div className={styles['content__right__social']}>
                   <img className={styles['social-icon']} src={fb} alt="fb" />

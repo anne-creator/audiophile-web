@@ -12,6 +12,7 @@ var slice_1 = require("../../redux/productPromote/slice");
 exports.CategoryPage = function (props) {
     var categories = hooks_1.useSelector(function (s) { return s.categoreis.data; });
     var productList = hooks_1.useSelector(function (s) { return s.productPromote.data; });
+    console.log(productList);
     var categoryId = react_router_dom_1.useParams().categoryId;
     var item = categories[categoryId - 1];
     var dispatch = react_redux_1.useDispatch();

@@ -82,7 +82,7 @@
     margin-bottom: 2.5rem;
   }
 }
-.footer .content__right__nav > span {
+.footer .content__right__nav > .item {
   margin-left: 3.4rem;
   color: white;
   font-size: 13px;
@@ -98,16 +98,16 @@
   border-radius: 10px;
 }
 @media only screen and (max-width: 992px) {
-  .footer .content__right__nav > span {
+  .footer .content__right__nav > .item {
     margin-right: 2rem;
     margin-left: 0;
   }
 }
-.footer .content__right__nav > span:hover {
+.footer .content__right__nav > .item:hover {
   color: #fdb97d;
   border-bottom: 1px solid #fdb97d;
 }
-.footer .content__right__nav > span:active {
+.footer .content__right__nav > .item:active {
   color: #D87D4A;
   transform: translateY(2px);
 }

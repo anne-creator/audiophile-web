@@ -165,10 +165,38 @@
     display: none;
   }
 }
+.hidden .item {
+  color: white !important;
+  font-size: 13px;
+  font-family: Roboto;
+  font-weight: bolder;
+  font-style: normal;
+  line-height: 25px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 10px;
+}
+.hidden .item:hover {
+  color: #fdb97d;
+  border-bottom: 1px solid #fdb97d;
+}
+.hidden .item:active {
+  color: #D87D4A;
+  transform: translateY(2px);
+}
 .hidden .signin-link {
   padding-bottom: 1rem;
 }
 .hidden .button__login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  border-radius: 10rem;
+  cursor: pointer;
   font-size: 13px;
   font-family: "Roboto";
   font-weight: bolder;
@@ -177,6 +205,7 @@
   text-decoration: none;
   background-color: #D87D4A;
   color: #fcfcfd;
+  border: none;
   width: 9rem;
 }
 .hidden .button__login:hover {
@@ -185,22 +214,34 @@
 .hidden .button__login:active, .hidden .button__login:focus {
   border-color: #D87D4A;
   background: #D87D4A;
+  box-shadow: #D87D4A;
+}
+.hidden .button__login ::selection {
+  color: #fff;
+  background: #D87D4A !important;
 }
 .hidden .button__signup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  border-radius: 10rem;
+  cursor: pointer;
+  color: #f1f1f1;
   font-size: 13px;
   font-family: "Roboto";
   font-weight: bolder;
   font-style: normal;
   letter-spacing: 1px;
   text-decoration: none;
-  color: #c6542b;
+  color: #23262f;
+  width: 9rem;
 }
 .hidden .button__signup:hover {
   background-color: #fcfcfd;
-  color: #080d2c;
-  border-color: #D87D4A;
+  color: #D87D4A;
 }
-.hidden .button__signup:active {
-  color: #c6542b;
-  transform: ranslateY(0.2rem);
+
+.ant-menu-item .ant-meun-item-active {
+  color: #D87D4A !important;
 }

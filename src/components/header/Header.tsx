@@ -3,17 +3,22 @@ import styles from './Header.module.scss'
 import logo from "../../assets/logo.png";
 import { Button } from "antd";
 import { MenuOutlined } from '@ant-design/icons';
+import { useSelector } from '../../redux/hooks'
+import { useDispatch } from "react-redux";
+import { getProductPromote } from '../../redux/productPromote/slice'
 import { Link } from 'react-router-dom';
 
 
 export const Header: React.FC = () => {
   const [showLinks, setShowLinks] = useState(false);
-  // const history = useHistory();
+  const productPromote = useSelector(s => s.productPromote.data);
   return (
     <div className={styles["app-header"]}>
       <div className={styles["header"]}>
         {/* 1.logo */}
-        <div className={styles['logo-container']}><img src={logo} alt="logo" /></div>
+        <Link to={'/'} >
+          <div className={styles['logo-container']}><img src={logo} alt="logo" /></div>
+        </Link>
         {/* 2.nav */}
         <div className={styles['nav']}>
           {/* nav button */}
@@ -26,18 +31,26 @@ export const Header: React.FC = () => {
           </div>
           {/* nav bar */}
           <ul className={styles["nav__items"]}>
-            <li className={styles['item']}>
-              HOME
-            </li>
-            <li className={styles['item']}>
-              HEADPHONES
-            </li>
-            <li className={styles['item']}>
-              SPEAKERS
-            </li>
-            <li className={styles['item']}>
-              EARPHONES
-            </li>
+            <Link to={'/'} >
+              <li className={styles['item']}>
+                HOME
+              </li>
+            </Link>
+            <Link to={'/categories/1'}>
+              <li className={styles['item']}>
+                HEADPHONES
+              </li>
+            </Link>
+            <Link to={'/categories/2'}>
+              <li className={styles['item']}>
+                SPEAKERS
+              </li>
+            </Link>
+            <Link to={'/categories/3'}>
+              <li className={styles['item']}>
+                EARPHONES
+              </li>
+            </Link>
           </ul>
         </div>
         {/* 3.right */}
@@ -56,28 +69,36 @@ export const Header: React.FC = () => {
       {
         showLinks ?
           <div>
-            <div className={styles[showLinks ? 'hidden' : '']} >
-              <div className={styles['item']}>
-                HOME
-              </div>
-              <div className={styles['item']}>
-                HEADPHONES
-              </div>
-              <div className={styles['item']}>
-                SPEAKERS
-              </div>
-              <div className={styles['item']}>
-                EARPHONES
-              </div>
-              <div className={styles['item']}>
+            <ul className={styles[showLinks ? 'hidden' : '']} >
+              <Link to={'/'} >
+                <li className={styles['item']}>
+                  HOME
+                </li>
+              </Link>
+              <Link to={'/categories/1'}>
+                <li className={styles['item']}>
+                  HEADPHONES
+                </li>
+              </Link>
+              <Link to={'/categories/1'}>
+                <li className={styles['item']}>
+                  SPEAKERS
+                </li>
+              </Link>
+              <Link to={'/categories/1'}>
+                <li className={styles['item']}>
+                  EARPHONES
+                </li>
+              </Link>
+              <li >
                 <Link to={`signIn`} >
                   <Button type='primary' className={styles['button__login']} >Sign In</Button></Link>
-              </div>
-              <div className={styles['item']}>
+              </li>
+              <li >
                 <Link to={`register`}>
                   <Button className={styles['button__signup']} >Register</Button></Link>
-              </div>
-            </div>
+              </li>
+            </ul>
           </div>
           : null
       }

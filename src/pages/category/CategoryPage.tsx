@@ -12,6 +12,7 @@ interface MatchParams {
 export const CategoryPage: React.FC<MatchParams> = (props) => {
     const categories = useSelector(s => s.categoreis.data);
     const productList = useSelector(s => s.productPromote.data);
+    console.log(productList);
     const { categoryId }: any = useParams();
     const item = categories[categoryId - 1];
     const dispatch = useDispatch();
