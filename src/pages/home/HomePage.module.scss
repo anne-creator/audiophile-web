@@ -21,7 +21,7 @@
         justify-content: center;
         align-items: start;
         flex-direction: column;
-        padding: 7.5vw;
+        padding-left: 11.45vw;
 
 
 
@@ -43,7 +43,7 @@
     }
 
     &__img-container {
-        height: 100%;
+        height: calc(100vh - 8.1rem);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -52,8 +52,6 @@
 
     &__img {
         height: calc(100vh - 8.1rem);
-        // width: 100%;
-        // height: 100%;
         object-fit: cover;
     }
 }
