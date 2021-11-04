@@ -79,13 +79,10 @@ export const Header: React.FC = () => {
         <div>
           <div className={styles['header__right']}>
             {jwt ? (
-              <Button.Group className={styles["button-group"]}>
-                <span>
-                  Welcome,
-                  <h1>{username}</h1>
-                </span>
-                <Button onClick={onLogout}>Sign Out</Button>
-              </Button.Group>
+              <div className={styles["header__right__signin-status"]}>
+                <div className={styles['header__right__user-name']}>{`Welcome,${username}`}</div>
+                <Button className={styles['button__sign-out']} type='primary' onClick={onLogout}>Sign Out</Button>
+              </div>
             )
               : (
                 <Button.Group className={styles["button-group"]}>

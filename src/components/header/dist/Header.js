@@ -46,11 +46,9 @@ exports.Header = function () {
                     react_1["default"].createElement(react_router_dom_1.Link, { to: '/categories/3' },
                         react_1["default"].createElement("li", { className: Header_module_scss_1["default"]['item'] }, "EARPHONES")))),
             react_1["default"].createElement("div", null,
-                react_1["default"].createElement("div", { className: Header_module_scss_1["default"]['header__right'] }, jwt ? (react_1["default"].createElement(antd_1.Button.Group, { className: Header_module_scss_1["default"]["button-group"] },
-                    react_1["default"].createElement("span", null,
-                        "Welcome,",
-                        react_1["default"].createElement("h1", null, username)),
-                    react_1["default"].createElement(antd_1.Button, { onClick: onLogout }, "Sign Out")))
+                react_1["default"].createElement("div", { className: Header_module_scss_1["default"]['header__right'] }, jwt ? (react_1["default"].createElement("div", { className: Header_module_scss_1["default"]["header__right__signin-status"] },
+                    react_1["default"].createElement("div", { className: Header_module_scss_1["default"]['header__right__user-name'] }, "Welcome," + username),
+                    react_1["default"].createElement(antd_1.Button, { className: Header_module_scss_1["default"]['button__sign-out'], type: 'primary', onClick: onLogout }, "Sign Out")))
                     : (react_1["default"].createElement(antd_1.Button.Group, { className: Header_module_scss_1["default"]["button-group"] },
                         react_1["default"].createElement(react_router_dom_1.Link, { to: "signIn" },
                             react_1["default"].createElement(antd_1.Button, { type: 'primary', className: Header_module_scss_1["default"]['button__login'] }, "Sign In")),

@@ -6,7 +6,7 @@
 
 .footer {
   padding: 7.5rem 11.45rem 4.8rem 11.45rem;
-  background-color: #080d2c;
+  background-color: #141414;
   color: white;
   min-height: 36.5rem;
 }
@@ -95,7 +95,6 @@
   transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
   cursor: pointer;
   padding: 0.5rem;
-  border-radius: 10px;
 }
 @media only screen and (max-width: 992px) {
   .footer .content__right__nav > .item {
