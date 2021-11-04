@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet');
+:root {
+  font-size: 62.5%;
+  font-family: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.register__title {
+  color: #D87D4A;
+  font-size: 32px;
+  font-family: "Manrope";
+  font-weight: bolder;
+  font-style: normal;
+  line-height: 36px;
+  letter-spacing: 1.14px;
+  text-decoration: none;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.button-primary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  border-radius: 10rem;
+  cursor: pointer;
+  font-size: 13px;
+  font-family: "Roboto";
+  font-weight: bolder;
+  font-style: normal;
+  letter-spacing: 1px;
+  text-decoration: none;
+  background-color: #080d2c !important;
+  color: #fcfcfd !important;
+  border: none !important;
+  width: 9rem !important;
+}
+.button-primary:hover {
+  background-color: #1f3864 !important;
+}
+.button-primary:active, .button-primary:focus {
+  border-color: #080d2c !important;
+  background: #080d2c !important;
+  box-shadow: #080d2c !important;
+}
+.button-primary ::selection {
+  color: #fff !important;
+  background: #080d2c !important;
+}

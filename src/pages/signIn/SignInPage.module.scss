@@ -1,0 +1,46 @@
+@import "../../index.scss";
+
+.register-form {
+    width: 450px;
+    margin-right: auto !important;
+    margin-left: auto !important;
+    color: white;
+}
+
+.Signin__title {
+    @include text-style-h3;
+    color: $color-primary;
+    text-align: center;
+}
+
+// .signin__container {
+//     margin: 0 44px 0 -44px
+// }
+.register-form {
+    width: 70%;
+}
+
+.button-primary {
+    @include button-basic;
+    @include text-style-button;
+    background-color: $color-secondary !important;
+    color: $color-neutrals-8 !important;
+    border: none !important;
+    width: 9rem !important;
+
+    &:hover {
+        background-color: $color-secondary-light !important;
+    }
+
+    &:active,
+    &:focus {
+        border-color: $color-secondary !important;
+        background: $color-secondary !important;
+        box-shadow: $color-secondary !important;
+    }
+
+    ::selection {
+        color: #fff !important;
+        background: $color-secondary !important;
+    }
+}

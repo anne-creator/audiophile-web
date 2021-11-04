@@ -23,16 +23,16 @@ export const Footer: React.FC = () => {
             </div>
             <div className={styles['content__right']}>
                <div className={styles['content__right__nav']}>
-                  <Link to={'/categories/:categoryId'} className={styles['item']} >
+                  <Link to={'/'} className={styles['item']} >
                      <span>HOME</span>
                   </Link>
-                  <Link to={'/categories/:categoryId'} className={styles['item']}>
+                  <Link to={'/categories/1'} className={styles['item']}>
                      <span>HEADPHONES</span>
                   </Link>
-                  <Link to={'/categories/:categoryId'} className={styles['item']}>
+                  <Link to={'/categories/2'} className={styles['item']}>
                      <span>SPEAKERS</span>
                   </Link>
-                  <Link to={'/categories/:categoryId'} className={styles['item']}>
+                  <Link to={'/categories/3'} className={styles['item']}>
                      <span>EARPHONES</span>
                   </Link>
                </div>

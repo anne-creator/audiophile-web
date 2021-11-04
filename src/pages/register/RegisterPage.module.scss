@@ -1,0 +1,33 @@
+@import "../../index.scss";
+
+.register__title {
+    color: $color-primary;
+    @include text-style-h3;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.button-primary {
+    @include button-basic;
+    @include text-style-button;
+    background-color: $color-secondary !important;
+    color: $color-neutrals-8 !important;
+    border: none !important;
+    width: 9rem !important;
+
+    &:hover {
+        background-color: $color-secondary-light !important;
+    }
+
+    &:active,
+    &:focus {
+        border-color: $color-secondary !important;
+        background: $color-secondary !important;
+        box-shadow: $color-secondary !important;
+    }
+
+    ::selection {
+        color: #fff !important;
+        background: $color-secondary !important;
+    }
+}

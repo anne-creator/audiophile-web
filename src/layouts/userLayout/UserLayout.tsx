@@ -1,15 +1,25 @@
 import React from "react";
-import styles from "./UserLayout.module.css";
-import logo from "../../assets/logo.svg";
+import styles from "./UserLayout.module.scss";
+import logo from "../../assets/logo.png";
 import { Layout } from "antd";
-const { Content } = Layout;
+import { Link } from 'react-router-dom'
 
 export const UserLayout: React.FC = ({ children }) => {
   return (
     <Layout className={styles["user-layout-container"]}>
-      <Content className={styles["content"]}>
-        {children}
-      </Content>
+      <div className={styles["content__container"]}>
+        <div className={styles["header"]}>
+          <Link to="/">
+            <img alt="logo" className={styles["logo"]} src={logo} />
+            <div className={styles["content__des"]}>
+              AudioPhile,fulfill your audio needs.
+            </div>
+          </Link>
+        </div>
+        <div className={styles['content']} >
+          {children}
+        </div>
+      </div>
     </Layout>
   );
 };
