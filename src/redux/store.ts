@@ -2,7 +2,8 @@ import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import { categoriesSlice } from "./categories/slice";
 import { productPromoteSlice } from "./productPromote/slice";
 import { productItemSlice } from "./productItem/slice";
-import { userSlice } from './user/slice'
+import { userSlice } from './user/slice';
+import { cartListSlice } from './cartList/slice';
 
 
 const rootReducer = combineReducers({
@@ -10,6 +11,7 @@ const rootReducer = combineReducers({
     productPromote: productPromoteSlice.reducer,
     productItem: productItemSlice.reducer,
     user: userSlice.reducer,
+    cart:cartListSlice.reducer
 
 
 })

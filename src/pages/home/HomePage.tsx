@@ -10,6 +10,8 @@ import hero from '../../assets/hero.png'
 import { Link } from 'react-router-dom'
 
 export const HomePage: React.FC = () => {
+
+
   return (<>
     <div className={styles['homePage']} >
       <MainLayout>

@@ -12,10 +12,10 @@ var slice_1 = require("../../redux/productPromote/slice");
 exports.CategoryPage = function (props) {
     var categories = hooks_1.useSelector(function (s) { return s.categoreis.data; });
     var productList = hooks_1.useSelector(function (s) { return s.productPromote.data; });
-    console.log(productList);
     var categoryId = react_router_dom_1.useParams().categoryId;
     var item = categories[categoryId - 1];
     var dispatch = react_redux_1.useDispatch();
+    /** Get all product and filted it with categoryID */
     react_1.useEffect(function () {
         dispatch(slice_1.getProductPromote({}));
     }, []);
@@ -26,7 +26,7 @@ exports.CategoryPage = function (props) {
             react_1["default"].createElement("div", { className: CategoryPage_module_scss_1["default"]['category'] },
                 products.map(function (item) {
                     var _a;
-                    return (react_1["default"].createElement(components_1.Product, { productName: item === null || item === void 0 ? void 0 : item.productName, ifNew: item === null || item === void 0 ? void 0 : item.ifNew, description: item === null || item === void 0 ? void 0 : item.description, productImg: (_a = item === null || item === void 0 ? void 0 : item.imageSrcList) === null || _a === void 0 ? void 0 : _a.productImg, productPrice: item === null || item === void 0 ? void 0 : item.price }));
+                    return (react_1["default"].createElement(components_1.Product, { productId: item === null || item === void 0 ? void 0 : item.productId, productName: item === null || item === void 0 ? void 0 : item.productName, ifNew: item === null || item === void 0 ? void 0 : item.ifNew, description: item === null || item === void 0 ? void 0 : item.description, productImg: (_a = item === null || item === void 0 ? void 0 : item.imageSrcList) === null || _a === void 0 ? void 0 : _a.productImg }));
                 }),
                 react_1["default"].createElement(components_1.Categories, null),
                 react_1["default"].createElement(components_1.Story, null)))));

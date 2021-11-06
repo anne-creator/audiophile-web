@@ -12,11 +12,13 @@ var slice_1 = require("./categories/slice");
 var slice_2 = require("./productPromote/slice");
 var slice_3 = require("./productItem/slice");
 var slice_4 = require("./user/slice");
+var slice_5 = require("./cartList/slice");
 var rootReducer = toolkit_1.combineReducers({
     categoreis: slice_1.categoriesSlice.reducer,
     productPromote: slice_2.productPromoteSlice.reducer,
     productItem: slice_3.productItemSlice.reducer,
-    user: slice_4.userSlice.reducer
+    user: slice_4.userSlice.reducer,
+    cart: slice_5.cartListSlice.reducer
 });
 var store = toolkit_1.configureStore({
     reducer: rootReducer,

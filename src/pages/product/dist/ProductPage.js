@@ -1,4 +1,8 @@
 "use strict";
+/** Show Singer product detail in this page.
+ *  @param productId
+ *  dispatch cart item information to redux store cartList slice
+*/
 exports.__esModule = true;
 exports.ProductPage = void 0;
 var react_1 = require("react");
@@ -10,10 +14,13 @@ var slice_1 = require("../../redux/productItem/slice");
 var components_1 = require("../../components");
 var mainLayout_1 = require("../../layouts/mainLayout");
 var antd_1 = require("antd");
+var slice_2 = require("../../redux/cartList/slice");
 exports.ProductPage = function (props) {
     var _a, _b, _c, _d, _e;
     var productId = react_router_dom_1.useParams().productId;
     var dispatch = react_redux_1.useDispatch();
+    var jwt = hooks_1.useSelector(function (s) { return s.user.token; });
+    var history = react_router_dom_1.useHistory();
     /** Get product by its productid */
     react_1.useEffect(function () {
         dispatch(slice_1.getProductItem("" + productId));
@@ -22,8 +29,38 @@ exports.ProductPage = function (props) {
     var data = hooks_1.useSelector(function (s) { return s.productItem.data; });
     var error = hooks_1.useSelector(function (s) { return s.productItem.error; });
     var loading = hooks_1.useSelector(function (s) { return s.productItem.loading; });
-    // const productPromote = (s => s.productPromote.data)
     var productItem = data === null || data === void 0 ? void 0 : data["function"];
+    //handle product quantity
+    var _f = react_1.useState(1), productQuantity = _f[0], setProductQuantity = _f[1];
+    var _g = react_1.useState({}), cartItem = _g[0], setCartItem = _g[1];
+    var handleProductQuantity = function (num) {
+        if (num === 1 && productQuantity <= 99 || num === -1 && productQuantity >= 1) {
+            setProductQuantity(productQuantity + num);
+        }
+    };
+    /** update cartItem whenever productQuantity changes */
+    react_1.useEffect(function () {
+        var _a;
+        setCartItem({
+            productId: productItem === null || productItem === void 0 ? void 0 : productItem.productId,
+            ProductName: productItem === null || productItem === void 0 ? void 0 : productItem.productName,
+            quantity: productQuantity,
+            ifChecked: true,
+            price: (productItem === null || productItem === void 0 ? void 0 : productItem.price) * productQuantity,
+            singleItemtotalPrice: productItem === null || productItem === void 0 ? void 0 : productItem.price,
+            image: (_a = productItem === null || productItem === void 0 ? void 0 : productItem.imageSrcList) === null || _a === void 0 ? void 0 : _a.categoryImg
+        });
+    }, [productQuantity]);
+    /** dispatch cartItem to store when clicked add to cart */
+    var handleAddtoCart = function () {
+        if (!jwt) {
+            history.push("/signIn");
+        }
+        else {
+            dispatch(slice_2.addToCart(cartItem));
+            setProductQuantity(0);
+        }
+    };
     if (loading) {
         return (react_1["default"].createElement(antd_1.Spin, { size: "large", style: {
                 marginTop: 200,
@@ -52,10 +89,10 @@ exports.ProductPage = function (props) {
                             react_1["default"].createElement("div", { className: ProductPage_module_scss_1["default"]['product__price'] }, "$ " + (productItem === null || productItem === void 0 ? void 0 : productItem.price)),
                             react_1["default"].createElement("div", { className: ProductPage_module_scss_1["default"]['product__cart'] },
                                 react_1["default"].createElement("div", { className: ProductPage_module_scss_1["default"]['product__cal'] },
-                                    react_1["default"].createElement("div", { className: ProductPage_module_scss_1["default"]['product__cal__item'] }, "-"),
-                                    react_1["default"].createElement("div", { className: ProductPage_module_scss_1["default"]['product__cal__item'] }, "1"),
-                                    react_1["default"].createElement("div", { className: ProductPage_module_scss_1["default"]['product__cal__item'] }, "+")),
-                                react_1["default"].createElement(antd_1.Button, { className: ProductPage_module_scss_1["default"]['button-primary'], type: 'primary' }, "ADD To CART")))),
+                                    react_1["default"].createElement("div", { className: ProductPage_module_scss_1["default"]['product__cal__item'], onClick: function () { return handleProductQuantity(-1); } }, "-"),
+                                    react_1["default"].createElement("div", { className: ProductPage_module_scss_1["default"]['product__cal__item'] }, productQuantity),
+                                    react_1["default"].createElement("div", { className: ProductPage_module_scss_1["default"]['product__cal__item'], onClick: function () { return handleProductQuantity(1); } }, "+")),
+                                react_1["default"].createElement(antd_1.Button, { onClick: function () { return handleAddtoCart(); }, className: ProductPage_module_scss_1["default"]['button-primary'], type: 'primary' }, "ADD TO CART")))),
                     react_1["default"].createElement("div", { className: ProductPage_module_scss_1["default"]['product__feature-and-inbox'] },
                         react_1["default"].createElement("div", { className: ProductPage_module_scss_1["default"]['product__features'] },
                             react_1["default"].createElement("h1", { className: ProductPage_module_scss_1["default"]['product__features__title'] }, "Features"), productItem === null || productItem === void 0 ? void 0 :

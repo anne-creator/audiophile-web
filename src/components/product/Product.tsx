@@ -1,17 +1,17 @@
 import React, { useEffect } from 'react';
 import styles from './Product.module.scss'
 import { Button } from 'antd'
-
+import { Link } from 'react-router-dom'
 
 interface PropsType {
+    productId: string;
     productName: string;
     ifNew: boolean;
     description: string;
     productImg: string;
-    productPrice: string;
 }
 
-export const Product: React.FC<PropsType> = ({ productName, ifNew, description, productImg, productPrice }) => {
+export const Product: React.FC<PropsType> = ({ productName, ifNew, description, productImg, productId }) => {
     return (
         <>
             <div className={styles['product']}>
@@ -24,7 +24,9 @@ export const Product: React.FC<PropsType> = ({ productName, ifNew, description, 
                     ) : (null)}
                     <h1 className={styles['product__title']}>{productName}</h1>
                     <div className={styles['product__description']}>{description}</div>
-                    <Button className={styles['button-primary']} type='primary'>SEE PRODUCT</Button>
+                    <Link to={`/productItem/${productId}`}>
+                        <Button className={styles['button-primary']} type='primary'>SEE PRODUCT</Button>
+                    </Link>
                 </div>
             </div>
         </>

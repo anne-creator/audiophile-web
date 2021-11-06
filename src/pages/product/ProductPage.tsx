@@ -1,13 +1,20 @@
-import React, { useEffect } from 'react';
+/** Show Singer product detail in this page. 
+ *  @param productId
+ *  dispatch cart item information to redux store cartList slice 
+*/
+
+import React, { useEffect, useState } from 'react';
 import styles from './ProductPage.module.scss';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import { useSelector } from '../../redux/hooks'
 import { useDispatch } from "react-redux";
 import { getProductItem } from '../../redux/productItem/slice';
-import { getProductPromote } from '../../redux/productPromote/slice';
 import { Categories, Story, MayLikeProducts } from '../../components'
 import { MainLayout } from '../../layouts/mainLayout'
 import { Button, Spin } from 'antd'
+import { addToCart } from '../../redux/cartList/slice'
+import { userSlice } from '../../redux/user/slice'
+
 interface PropsType {
     productId: string;
 }
@@ -15,6 +22,9 @@ interface PropsType {
 export const ProductPage: React.FC<PropsType> = (props) => {
     const { productId } = useParams<PropsType>();
     const dispatch = useDispatch();
+    const jwt = useSelector(s => s.user.token);
+    const history = useHistory();
+
     /** Get product by its productid */
     useEffect(() => {
         dispatch(getProductItem(`${productId}`))
@@ -23,10 +33,41 @@ export const ProductPage: React.FC<PropsType> = (props) => {
     const data = useSelector(s => s.productItem.data)
     const error = useSelector((s) => s.productItem.error);
     const loading = useSelector((s) => s.productItem.loading);
-
-    // const productPromote = (s => s.productPromote.data)
     const productItem = data?.function
 
+    //handle product quantity
+    let [productQuantity, setProductQuantity] = useState<number>(1);
+    let [cartItem, setCartItem] = useState<{}>({});
+
+    const handleProductQuantity = (num: number) => {
+        if (num === 1 && productQuantity <= 99 || num === -1 && productQuantity >= 1) {
+            setProductQuantity(productQuantity + num);
+        }
+    }
+
+    /** update cartItem whenever productQuantity changes */
+    useEffect(() => {
+        setCartItem({
+            productId: productItem?.productId,
+            ProductName: productItem?.productName,
+            quantity: productQuantity,
+            ifChecked: true,
+            price: productItem?.price * productQuantity,
+            singleItemtotalPrice: productItem?.price,
+            image: productItem?.imageSrcList?.categoryImg,
+        })
+    }, [productQuantity])
+    /** dispatch cartItem to store when clicked add to cart */
+
+    const handleAddtoCart = () => {
+        if (!jwt) {
+            history.push(`/signIn`);
+        } else {
+            dispatch(addToCart(cartItem));
+            setProductQuantity(0);
+        }
+
+    }
 
     if (loading) {
         return (
@@ -64,11 +105,11 @@ export const ProductPage: React.FC<PropsType> = (props) => {
                             <div className={styles['product__price']}>{`$ ${productItem?.price}`}</div>
                             <div className={styles['product__cart']} >
                                 <div className={styles['product__cal']} >
-                                    <div className={styles['product__cal__item']}>-</div>
-                                    <div className={styles['product__cal__item']}>1</div>
-                                    <div className={styles['product__cal__item']}>+</div>
+                                    <div className={styles['product__cal__item']} onClick={() => handleProductQuantity(-1)}>-</div>
+                                    <div className={styles['product__cal__item']}>{productQuantity}</div>
+                                    <div className={styles['product__cal__item']} onClick={() => handleProductQuantity(1)}>+</div>
                                 </div>
-                                <Button className={styles['button-primary']} type='primary'>ADD To CART</Button>
+                                <Button onClick={() => handleAddtoCart()} className={styles['button-primary']} type='primary'>ADD TO CART</Button>
                             </div>
                         </div>
                     </div>

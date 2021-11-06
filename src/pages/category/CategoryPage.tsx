@@ -12,10 +12,11 @@ interface MatchParams {
 export const CategoryPage: React.FC<MatchParams> = (props) => {
     const categories = useSelector(s => s.categoreis.data);
     const productList = useSelector(s => s.productPromote.data);
-    console.log(productList);
     const { categoryId }: any = useParams();
     const item = categories[categoryId - 1];
     const dispatch = useDispatch();
+
+    /** Get all product and filted it with categoryID */
     useEffect(() => {
         dispatch(getProductPromote({}));
     }, []);
@@ -27,7 +28,7 @@ export const CategoryPage: React.FC<MatchParams> = (props) => {
                 <div className={styles['category']}>
                     {products.map(item => {
                         return (
-                            <Product productName={item?.productName} ifNew={item?.ifNew} description={item?.description} productImg={item?.imageSrcList?.productImg} productPrice={item?.price} />
+                            <Product productId={item?.productId} productName={item?.productName} ifNew={item?.ifNew} description={item?.description} productImg={item?.imageSrcList?.productImg} />
                         )
                     })}
                     <Categories />
