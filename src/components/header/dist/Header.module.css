@@ -86,6 +86,7 @@
 .header__right__signin-status {
   color: white;
   display: flex;
+  align-items: center;
 }
 .header__right__user-name {
   margin: 0;
@@ -94,6 +95,7 @@
   font-family: "Manrope";
   line-height: 25px;
   text-decoration: none;
+  line-height: 15px !important;
 }
 .header__right .button__login,
 .header__right .button__sign-out {

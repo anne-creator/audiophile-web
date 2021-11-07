@@ -37,7 +37,15 @@ export const ProductPage: React.FC<PropsType> = (props) => {
 
     //handle product quantity
     let [productQuantity, setProductQuantity] = useState<number>(1);
-    let [cartItem, setCartItem] = useState<{}>({});
+    let [cartItem, setCartItem] = useState<{}>({
+        productId: productItem?.productId,
+        ProductName: productItem?.productName,
+        quantity: 1,
+        ifChecked: true,
+        price: productItem?.price * 1,
+        singleItemtotalPrice: productItem?.price,
+        image: productItem?.imageSrcList?.categoryImg,
+    });
 
     const handleProductQuantity = (num: number) => {
         if (num === 1 && productQuantity <= 99 || num === -1 && productQuantity >= 1) {

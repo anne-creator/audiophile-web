@@ -87,13 +87,14 @@
         &__signin-status {
             color: white;
             display: flex;
+            align-items: center;
         }
 
         &__user-name {
             margin: 0;
             margin-right: 1rem !important;
             @include text-style-title;
-
+            line-height: 15px !important;
         }
 
         .button__login,
@@ -188,6 +189,7 @@
         }
     }
 
+    // \\\\\\\\\\\\   Once signed In   \\\\\\\\\\\\\\
     .signin-link {
         padding-bottom: 1rem;
     }

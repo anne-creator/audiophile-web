@@ -16,7 +16,7 @@ var mainLayout_1 = require("../../layouts/mainLayout");
 var antd_1 = require("antd");
 var slice_2 = require("../../redux/cartList/slice");
 exports.ProductPage = function (props) {
-    var _a, _b, _c, _d, _e;
+    var _a, _b, _c, _d, _e, _f;
     var productId = react_router_dom_1.useParams().productId;
     var dispatch = react_redux_1.useDispatch();
     var jwt = hooks_1.useSelector(function (s) { return s.user.token; });
@@ -31,8 +31,16 @@ exports.ProductPage = function (props) {
     var loading = hooks_1.useSelector(function (s) { return s.productItem.loading; });
     var productItem = data === null || data === void 0 ? void 0 : data["function"];
     //handle product quantity
-    var _f = react_1.useState(1), productQuantity = _f[0], setProductQuantity = _f[1];
-    var _g = react_1.useState({}), cartItem = _g[0], setCartItem = _g[1];
+    var _g = react_1.useState(1), productQuantity = _g[0], setProductQuantity = _g[1];
+    var _h = react_1.useState({
+        productId: productItem === null || productItem === void 0 ? void 0 : productItem.productId,
+        ProductName: productItem === null || productItem === void 0 ? void 0 : productItem.productName,
+        quantity: 1,
+        ifChecked: true,
+        price: (productItem === null || productItem === void 0 ? void 0 : productItem.price) * 1,
+        singleItemtotalPrice: productItem === null || productItem === void 0 ? void 0 : productItem.price,
+        image: (_a = productItem === null || productItem === void 0 ? void 0 : productItem.imageSrcList) === null || _a === void 0 ? void 0 : _a.categoryImg
+    }), cartItem = _h[0], setCartItem = _h[1];
     var handleProductQuantity = function (num) {
         if (num === 1 && productQuantity <= 99 || num === -1 && productQuantity >= 1) {
             setProductQuantity(productQuantity + num);
@@ -81,7 +89,7 @@ exports.ProductPage = function (props) {
                 react_1["default"].createElement("div", { className: ProductPage_module_scss_1["default"]['product'] },
                     react_1["default"].createElement("div", { className: ProductPage_module_scss_1["default"]['product__main'] },
                         react_1["default"].createElement("div", { className: ProductPage_module_scss_1["default"]['product__img-container'] },
-                            react_1["default"].createElement("img", { src: (_a = productItem === null || productItem === void 0 ? void 0 : productItem.imageSrcList) === null || _a === void 0 ? void 0 : _a.productImg, alt: productItem === null || productItem === void 0 ? void 0 : productItem.productName })),
+                            react_1["default"].createElement("img", { src: (_b = productItem === null || productItem === void 0 ? void 0 : productItem.imageSrcList) === null || _b === void 0 ? void 0 : _b.productImg, alt: productItem === null || productItem === void 0 ? void 0 : productItem.productName })),
                         react_1["default"].createElement("div", { className: ProductPage_module_scss_1["default"]['product__detail'] },
                             (productItem === null || productItem === void 0 ? void 0 : productItem.ifNew) ? (react_1["default"].createElement("div", { className: ProductPage_module_scss_1["default"]['product__new'] }, "NEW PRODUCT")) : (null),
                             react_1["default"].createElement("h1", { className: ProductPage_module_scss_1["default"]['product__title'] }, productItem === null || productItem === void 0 ? void 0 : productItem.productName),
@@ -100,8 +108,8 @@ exports.ProductPage = function (props) {
                                 return (react_1["default"].createElement("p", null, item));
                             })),
                         react_1["default"].createElement("div", { className: ProductPage_module_scss_1["default"]['product__in-the-box'] },
-                            react_1["default"].createElement("h1", { className: ProductPage_module_scss_1["default"]['product__in-the-box__title'] }, "In The Box"), (_b = productItem === null || productItem === void 0 ? void 0 : productItem.inTheBox) === null || _b === void 0 ? void 0 :
-                            _b.map(function (item) {
+                            react_1["default"].createElement("h1", { className: ProductPage_module_scss_1["default"]['product__in-the-box__title'] }, "In The Box"), (_c = productItem === null || productItem === void 0 ? void 0 : productItem.inTheBox) === null || _c === void 0 ? void 0 :
+                            _c.map(function (item) {
                                 return (react_1["default"].createElement("div", { className: ProductPage_module_scss_1["default"]['product__in-the-box__content'] },
                                     react_1["default"].createElement("span", { style: { color: '#D87D4A', marginRight: '10px' } }, item[1] + "x"),
                                     react_1["default"].createElement("span", null, item[0])));
@@ -109,11 +117,11 @@ exports.ProductPage = function (props) {
                     react_1["default"].createElement("div", { className: ProductPage_module_scss_1["default"]['product__gallery'] },
                         react_1["default"].createElement("div", { className: ProductPage_module_scss_1["default"]['product__gallery__left'] },
                             react_1["default"].createElement("div", { className: ProductPage_module_scss_1["default"]['product__gallery1'] },
-                                react_1["default"].createElement("img", { src: (_c = productItem === null || productItem === void 0 ? void 0 : productItem.imageSrcList) === null || _c === void 0 ? void 0 : _c.gallery1Img, alt: productItem === null || productItem === void 0 ? void 0 : productItem.productName })),
+                                react_1["default"].createElement("img", { src: (_d = productItem === null || productItem === void 0 ? void 0 : productItem.imageSrcList) === null || _d === void 0 ? void 0 : _d.gallery1Img, alt: productItem === null || productItem === void 0 ? void 0 : productItem.productName })),
                             react_1["default"].createElement("div", { className: ProductPage_module_scss_1["default"]['product__gallery2'] },
-                                react_1["default"].createElement("img", { src: (_d = productItem === null || productItem === void 0 ? void 0 : productItem.imageSrcList) === null || _d === void 0 ? void 0 : _d.gallery2Img, alt: productItem === null || productItem === void 0 ? void 0 : productItem.productName }))),
+                                react_1["default"].createElement("img", { src: (_e = productItem === null || productItem === void 0 ? void 0 : productItem.imageSrcList) === null || _e === void 0 ? void 0 : _e.gallery2Img, alt: productItem === null || productItem === void 0 ? void 0 : productItem.productName }))),
                         react_1["default"].createElement("div", { className: ProductPage_module_scss_1["default"]['product__gallery3'] },
-                            react_1["default"].createElement("img", { src: (_e = productItem === null || productItem === void 0 ? void 0 : productItem.imageSrcList) === null || _e === void 0 ? void 0 : _e.gallery3Img, alt: productItem === null || productItem === void 0 ? void 0 : productItem.productName })))),
+                            react_1["default"].createElement("img", { src: (_f = productItem === null || productItem === void 0 ? void 0 : productItem.imageSrcList) === null || _f === void 0 ? void 0 : _f.gallery3Img, alt: productItem === null || productItem === void 0 ? void 0 : productItem.productName })))),
                 react_1["default"].createElement(components_1.MayLikeProducts, null),
                 react_1["default"].createElement(components_1.Categories, null),
                 react_1["default"].createElement(components_1.Story, null)))));

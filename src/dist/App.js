@@ -13,6 +13,9 @@ function App() {
                 react_1["default"].createElement(react_router_dom_1.Route, { path: "/register", component: pages_1.RegisterPage }),
                 react_1["default"].createElement(react_router_dom_1.Route, { path: "/categories/:categoryId", component: pages_1.CategoryPage }),
                 react_1["default"].createElement(react_router_dom_1.Route, { path: "/productItem/:productId", component: pages_1.ProductPage }),
+                "          ",
+                react_1["default"].createElement(react_router_dom_1.Route, { path: "/productItem/:productId", component: pages_1.ProductPage }),
+                react_1["default"].createElement(react_router_dom_1.Route, { path: "/cart", component: pages_1.CartPage }),
                 react_1["default"].createElement(react_router_dom_1.Route, { render: function () { return react_1["default"].createElement("h1", null, " 404 page not found "); } })))));
 }
 exports["default"] = App;
