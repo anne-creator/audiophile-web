@@ -11,13 +11,14 @@ var hooks_1 = require("../../redux/hooks");
 var jwt_decode_1 = require("jwt-decode");
 var slice_1 = require("../../redux/user/slice");
 var react_redux_1 = require("react-redux");
-var react_router_dom_2 = require("react-router-dom");
 exports.Header = function () {
+    // see if the folded nav nees opened
     var _a = react_1.useState(false), showLinks = _a[0], setShowLinks = _a[1];
+    // get jwt token to see if user has logged in
     var _b = react_1.useState(""), username = _b[0], setUsername = _b[1];
     var jwt = hooks_1.useSelector(function (s) { return s.user.token; });
     var dispatch = react_redux_1.useDispatch();
-    var history = react_router_dom_2.useHistory();
+    var history = react_router_dom_1.useHistory();
     react_1.useEffect(function () {
         if (jwt) {
             var token = jwt_decode_1["default"](jwt);
@@ -47,7 +48,12 @@ exports.Header = function () {
                         react_1["default"].createElement("li", { className: Header_module_scss_1["default"]['item'] }, "EARPHONES")))),
             react_1["default"].createElement("div", null,
                 react_1["default"].createElement("div", { className: Header_module_scss_1["default"]['header__right'] }, jwt ? (react_1["default"].createElement("div", { className: Header_module_scss_1["default"]["header__right__signin-status"] },
-                    react_1["default"].createElement("div", { className: Header_module_scss_1["default"]['header__right__user-name'] }, "Welcome," + username),
+                    react_1["default"].createElement("div", { className: Header_module_scss_1["default"]['header__right__user-name'] }, "Welcome,  " + username),
+                    react_1["default"].createElement(react_router_dom_1.Link, { to: "/cart", className: Header_module_scss_1["default"]['header__right__link'] },
+                        react_1["default"].createElement("div", { className: Header_module_scss_1["default"]['header__right__cart-container'] },
+                            react_1["default"].createElement(icons_1.ShoppingCartOutlined, { className: Header_module_scss_1["default"]['header__right__cart'] }),
+                            react_1["default"].createElement("div", { className: Header_module_scss_1["default"]['header__right__cart-item-container'] },
+                                react_1["default"].createElement("div", { className: Header_module_scss_1["default"]['header__right__cart-item'] }, "0")))),
                     react_1["default"].createElement(antd_1.Button, { className: Header_module_scss_1["default"]['button__sign-out'], type: 'primary', onClick: onLogout }, "Sign Out")))
                     : (react_1["default"].createElement(antd_1.Button.Group, { className: Header_module_scss_1["default"]["button-group"] },
                         react_1["default"].createElement(react_router_dom_1.Link, { to: "signIn" },

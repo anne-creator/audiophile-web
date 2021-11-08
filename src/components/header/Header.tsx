@@ -2,13 +2,12 @@ import React, { useState, useEffect } from "react";
 import styles from './Header.module.scss'
 import logo from "../../assets/logo.png";
 import { Button } from "antd";
-import { MenuOutlined, GlobalOutlined } from '@ant-design/icons';
-import { Link } from 'react-router-dom';
+import { MenuOutlined, ShoppingCartOutlined } from '@ant-design/icons';
+import { Link, useHistory } from 'react-router-dom';
 import { useSelector } from "../../redux/hooks";
 import jwt_decode, { JwtPayload as DefaultJwtPayload } from "jwt-decode";
 import { userSlice } from "../../redux/user/slice";
 import { useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
 
 
 
@@ -17,7 +16,10 @@ interface JwtPayload extends DefaultJwtPayload {
 }
 
 export const Header: React.FC = () => {
+  // see if the folded nav nees opened
   const [showLinks, setShowLinks] = useState(false);
+
+  // get jwt token to see if user has logged in
   const [username, setUsername] = useState("")
 
   const jwt = useSelector(s => s.user.token)
@@ -78,13 +80,23 @@ export const Header: React.FC = () => {
         {/* 3.right */}
         <div>
           <div className={styles['header__right']}>
+            {/* (jwt) ? when signed in : not signed in */}
             {jwt ? (
               <div className={styles["header__right__signin-status"]}>
-                <div className={styles['header__right__user-name']}>{`Welcome,${username}`}</div>
+                <div className={styles['header__right__user-name']}>{`Welcome,  ${username}`}</div>
+                <Link to={`/cart`} className={styles['header__right__link']} >
+                  <div className={styles['header__right__cart-container']}>
+                    <ShoppingCartOutlined className={styles['header__right__cart']} />
+                    <div className={styles['header__right__cart-item-container']} >
+                      <div className={styles['header__right__cart-item']} >0</div>
+                    </div>
+                  </div>
+                </Link>
                 <Button className={styles['button__sign-out']} type='primary' onClick={onLogout}>Sign Out</Button>
               </div>
             )
               : (
+
                 <Button.Group className={styles["button-group"]}>
                   <Link to={`signIn`}>
                     <Button type='primary' className={styles['button__login']} >Sign In</Button>

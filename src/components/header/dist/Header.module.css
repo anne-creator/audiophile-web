@@ -90,12 +90,68 @@
 }
 .header__right__user-name {
   margin: 0;
-  margin-right: 1rem !important;
+  margin-right: 0.69vw !important;
   font-size: 15px;
   font-family: "Manrope";
   line-height: 25px;
   text-decoration: none;
   line-height: 15px !important;
+  text-align: right;
+}
+.header__right__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header__right__cart-container {
+  position: relative;
+}
+.header__right__cart-container:hover {
+  transform: translateY(-0.2rem);
+  color: #D87D4A;
+}
+.header__right__cart-container:hover .header__right__cart-item-container {
+  background-color: #D87D4A;
+}
+.header__right__cart-container:hover .header__right__cart-item {
+  color: white;
+}
+.header__right__cart-container:hover .header__right__cart svg {
+  color: #D87D4A;
+}
+.header__right__cart-container:hover .header__right__cart svg:active, .header__right__cart-container:hover .header__right__cart svg:focus {
+  color: #D87D4A;
+  box-shadow: #D87D4A;
+}
+.header__right__cart {
+  margin-right: 1.04vw;
+  cursor: pointer;
+}
+.header__right__cart svg {
+  margin: 0.345vw;
+  height: 2rem;
+  width: 2rem;
+  color: white;
+}
+.header__right__cart-item-container {
+  position: absolute;
+  right: 0.7rem;
+  top: -0.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0.5px solid #D87D4A;
+  background-color: #fff;
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+}
+.header__right__cart-item {
+  color: #D87D4A;
+  font-size: 15px;
+  font-family: "Manrope";
+  line-height: 25px;
+  text-decoration: none;
 }
 .header__right .button__login,
 .header__right .button__sign-out {
