@@ -1,0 +1,47 @@
+@import "../../index.css";
+.checkout {
+  min-height: 50vh;
+  padding: 4rem 11.6vw 16.8rem 11.6vw;
+  background-color: #F5E7DB;
+}
+.checkout__title {
+  font-size: 32px;
+  font-weight: bolder;
+  font-style: normal;
+  line-height: 36px;
+  letter-spacing: 1.14px;
+  text-decoration: none;
+}
+.checkout__seperator {
+  height: 0.1rem;
+  width: 100%;
+  background-color: #f1f1f1;
+}
+.checkout__content {
+  min-height: 50vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 7vw;
+}
+@media only screen and (max-width: 992px) {
+  .checkout__content {
+    flex-direction: column;
+  }
+}
+.checkout__left {
+  width: 50.69vw;
+}
+.checkout__right {
+  width: 24.3vw;
+}
+.checkout__left, .checkout__right {
+  background-color: #fff;
+  border-radius: 8px;
+  min-height: 50vh;
+}
+@media only screen and (max-width: 992px) {
+  .checkout__left, .checkout__right {
+    width: 100%;
+  }
+}

@@ -155,17 +155,16 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            border: .5px solid $color-primary;
-            background-color: #fff;
+            background-color: $color-primary;
             height: 2rem;
             width: 2rem;
             border-radius: 50%;
         }
 
         &__cart-item {
-            color: $color-primary;
+            color: white;
             @include text-style-title;
-
+            margin-left: -0.15rem;
         }
 
         // cart end
@@ -273,7 +272,6 @@
         background-color: $color-primary;
         color: $color-neutrals-8;
         border: none;
-        width: 9rem;
 
         &:hover {
             background-color: $color-primary-light;
@@ -297,7 +295,6 @@
         color: $color-neutrals-7;
         @include text-style-button;
         color: $color-neutrals-2;
-        width: 9rem;
 
 
         &:hover {

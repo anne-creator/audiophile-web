@@ -15,7 +15,7 @@ var components_1 = require("../../components");
 var mainLayout_1 = require("../../layouts/mainLayout");
 var antd_1 = require("antd");
 var slice_2 = require("../../redux/cartList/slice");
-exports.ProductPage = function (props) {
+exports.ProductPage = function () {
     var _a, _b, _c, _d, _e, _f;
     var productId = react_router_dom_1.useParams().productId;
     var dispatch = react_redux_1.useDispatch();
@@ -24,7 +24,6 @@ exports.ProductPage = function (props) {
     /** Get product by its productid */
     react_1.useEffect(function () {
         dispatch(slice_1.getProductItem("" + productId));
-        // dispatch(getProductPromote({}))
     }, []);
     var data = hooks_1.useSelector(function (s) { return s.productItem.data; });
     var error = hooks_1.useSelector(function (s) { return s.productItem.error; });
@@ -34,12 +33,12 @@ exports.ProductPage = function (props) {
     var _g = react_1.useState(1), productQuantity = _g[0], setProductQuantity = _g[1];
     var _h = react_1.useState({
         productId: productItem === null || productItem === void 0 ? void 0 : productItem.productId,
-        ProductName: productItem === null || productItem === void 0 ? void 0 : productItem.productName,
+        productName: productItem === null || productItem === void 0 ? void 0 : productItem.productName,
         quantity: 1,
         ifChecked: true,
         price: (productItem === null || productItem === void 0 ? void 0 : productItem.price) * 1,
         singleItemtotalPrice: productItem === null || productItem === void 0 ? void 0 : productItem.price,
-        image: (_a = productItem === null || productItem === void 0 ? void 0 : productItem.imageSrcList) === null || _a === void 0 ? void 0 : _a.categoryImg
+        image: (_a = productItem === null || productItem === void 0 ? void 0 : productItem.imageSrcList) === null || _a === void 0 ? void 0 : _a.productImg
     }), cartItem = _h[0], setCartItem = _h[1];
     var handleProductQuantity = function (num) {
         if (num === 1 && productQuantity <= 99 || num === -1 && productQuantity >= 1) {
@@ -51,14 +50,14 @@ exports.ProductPage = function (props) {
         var _a;
         setCartItem({
             productId: productItem === null || productItem === void 0 ? void 0 : productItem.productId,
-            ProductName: productItem === null || productItem === void 0 ? void 0 : productItem.productName,
+            productName: productItem === null || productItem === void 0 ? void 0 : productItem.productName,
             quantity: productQuantity,
             ifChecked: true,
-            price: (productItem === null || productItem === void 0 ? void 0 : productItem.price) * productQuantity,
-            singleItemtotalPrice: productItem === null || productItem === void 0 ? void 0 : productItem.price,
+            price: productItem === null || productItem === void 0 ? void 0 : productItem.price,
+            singleItemTotalPrice: (productItem === null || productItem === void 0 ? void 0 : productItem.price) * productQuantity,
             image: (_a = productItem === null || productItem === void 0 ? void 0 : productItem.imageSrcList) === null || _a === void 0 ? void 0 : _a.categoryImg
         });
-    }, [productQuantity]);
+    }, [productQuantity, productId]);
     /** dispatch cartItem to store when clicked add to cart */
     var handleAddtoCart = function () {
         if (!jwt) {
@@ -110,7 +109,7 @@ exports.ProductPage = function (props) {
                         react_1["default"].createElement("div", { className: ProductPage_module_scss_1["default"]['product__in-the-box'] },
                             react_1["default"].createElement("h1", { className: ProductPage_module_scss_1["default"]['product__in-the-box__title'] }, "In The Box"), (_c = productItem === null || productItem === void 0 ? void 0 : productItem.inTheBox) === null || _c === void 0 ? void 0 :
                             _c.map(function (item) {
-                                return (react_1["default"].createElement("div", { className: ProductPage_module_scss_1["default"]['product__in-the-box__content'] },
+                                return (react_1["default"].createElement("div", { className: ProductPage_module_scss_1["default"]['product__in-the-box__content'], key: item.productId },
                                     react_1["default"].createElement("span", { style: { color: '#D87D4A', marginRight: '10px' } }, item[1] + "x"),
                                     react_1["default"].createElement("span", null, item[0])));
                             }))),

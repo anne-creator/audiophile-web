@@ -19,16 +19,16 @@ interface PropsType {
     productId: string;
 }
 
-export const ProductPage: React.FC<PropsType> = (props) => {
+export const ProductPage: React.FC<PropsType> = () => {
     const { productId } = useParams<PropsType>();
     const dispatch = useDispatch();
     const jwt = useSelector(s => s.user.token);
     const history = useHistory();
 
+
     /** Get product by its productid */
     useEffect(() => {
         dispatch(getProductItem(`${productId}`))
-        // dispatch(getProductPromote({}))
     }, []);
     const data = useSelector(s => s.productItem.data)
     const error = useSelector((s) => s.productItem.error);
@@ -39,12 +39,12 @@ export const ProductPage: React.FC<PropsType> = (props) => {
     let [productQuantity, setProductQuantity] = useState<number>(1);
     let [cartItem, setCartItem] = useState<{}>({
         productId: productItem?.productId,
-        ProductName: productItem?.productName,
+        productName: productItem?.productName,
         quantity: 1,
         ifChecked: true,
         price: productItem?.price * 1,
         singleItemtotalPrice: productItem?.price,
-        image: productItem?.imageSrcList?.categoryImg,
+        image: productItem?.imageSrcList?.productImg,
     });
 
     const handleProductQuantity = (num: number) => {
@@ -57,14 +57,14 @@ export const ProductPage: React.FC<PropsType> = (props) => {
     useEffect(() => {
         setCartItem({
             productId: productItem?.productId,
-            ProductName: productItem?.productName,
+            productName: productItem?.productName,
             quantity: productQuantity,
             ifChecked: true,
-            price: productItem?.price * productQuantity,
-            singleItemtotalPrice: productItem?.price,
+            price: productItem?.price,
+            singleItemTotalPrice: productItem?.price * productQuantity,
             image: productItem?.imageSrcList?.categoryImg,
         })
-    }, [productQuantity])
+    }, [productQuantity, productId])
     /** dispatch cartItem to store when clicked add to cart */
 
     const handleAddtoCart = () => {
@@ -136,7 +136,7 @@ export const ProductPage: React.FC<PropsType> = (props) => {
                             <h1 className={styles['product__in-the-box__title']} >In The Box</h1>
                             {productItem?.inTheBox?.map(item => {
                                 return (
-                                    <div className={styles['product__in-the-box__content']} >
+                                    <div className={styles['product__in-the-box__content']} key={item.productId}>
                                         <span style={{ color: '#D87D4A', marginRight: '10px' }}>{`${item[1]}x`}</span>
                                         <span>{item[0]}</span>
                                     </div>

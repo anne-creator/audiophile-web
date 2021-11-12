@@ -16,3 +16,4 @@ __exportStar(require("./register"), exports);
 __exportStar(require("./category"), exports);
 __exportStar(require("./product"), exports);
 __exportStar(require("./cart"), exports);
+__exportStar(require("./checkout"), exports);

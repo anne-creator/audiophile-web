@@ -14,7 +14,7 @@ const tailLayout = {
     wrapperCol: { offset: 8, span: 16 },
 };
 
-export const RegisterPage = () => {
+export const RegisterPage: React.FC = () => {
     const history = useHistory();
 
     const onFinish = async (values: any) => {

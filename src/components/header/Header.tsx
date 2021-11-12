@@ -9,8 +9,6 @@ import jwt_decode, { JwtPayload as DefaultJwtPayload } from "jwt-decode";
 import { userSlice } from "../../redux/user/slice";
 import { useDispatch } from "react-redux";
 
-
-
 interface JwtPayload extends DefaultJwtPayload {
   username: string
 }
@@ -35,6 +33,9 @@ export const Header: React.FC = () => {
     dispatch(userSlice.actions.logOut())
     history.push("/")
   }
+
+  /** Show cart quantity on the header */
+  const cartQuantity = useSelector(s => s.cart.cartQuantity)
 
   return (
     <div className={styles["app-header"]}>
@@ -88,7 +89,7 @@ export const Header: React.FC = () => {
                   <div className={styles['header__right__cart-container']}>
                     <ShoppingCartOutlined className={styles['header__right__cart']} />
                     <div className={styles['header__right__cart-item-container']} >
-                      <div className={styles['header__right__cart-item']} >0</div>
+                      <div className={styles['header__right__cart-item']} >{cartQuantity}</div>
                     </div>
                   </div>
                 </Link>

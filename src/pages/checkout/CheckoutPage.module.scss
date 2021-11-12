@@ -1,0 +1,53 @@
+@import "../../index.scss";
+@import "../../index.css";
+
+.checkout {
+    min-height: 50vh;
+    padding: 4rem 11.6vw 16.8rem 11.6vw;
+    background-color: #F5E7DB;
+
+
+    &__title {
+        @include text-style-h3;
+    }
+
+    &__seperator {
+        height: .1rem;
+        width: 100%;
+        background-color: $color-neutrals-7;
+    }
+
+    &__content {
+        min-height: 50vh;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 7vw;
+
+        @media only screen and (max-width: 992px) {
+            flex-direction: column;
+        }
+    }
+
+    &__left {
+        width: 50.69vw;
+
+    }
+
+    &__right {
+        width: 24.3vw;
+    }
+
+    &__left,
+    &__right {
+        background-color: #fff;
+        border-radius: 8px;
+        min-height: 50vh;
+
+        @media only screen and (max-width: 992px) {
+            width: 100%;
+        }
+    }
+
+
+}

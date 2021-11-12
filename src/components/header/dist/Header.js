@@ -29,6 +29,8 @@ exports.Header = function () {
         dispatch(slice_1.userSlice.actions.logOut());
         history.push("/");
     };
+    /** Show cart quantity on the header */
+    var cartQuantity = hooks_1.useSelector(function (s) { return s.cart.cartQuantity; });
     return (react_1["default"].createElement("div", { className: Header_module_scss_1["default"]["app-header"] },
         react_1["default"].createElement("div", { className: Header_module_scss_1["default"]["header"] },
             react_1["default"].createElement(react_router_dom_1.Link, { to: '/' },
@@ -53,7 +55,7 @@ exports.Header = function () {
                         react_1["default"].createElement("div", { className: Header_module_scss_1["default"]['header__right__cart-container'] },
                             react_1["default"].createElement(icons_1.ShoppingCartOutlined, { className: Header_module_scss_1["default"]['header__right__cart'] }),
                             react_1["default"].createElement("div", { className: Header_module_scss_1["default"]['header__right__cart-item-container'] },
-                                react_1["default"].createElement("div", { className: Header_module_scss_1["default"]['header__right__cart-item'] }, "0")))),
+                                react_1["default"].createElement("div", { className: Header_module_scss_1["default"]['header__right__cart-item'] }, cartQuantity)))),
                     react_1["default"].createElement(antd_1.Button, { className: Header_module_scss_1["default"]['button__sign-out'], type: 'primary', onClick: onLogout }, "Sign Out")))
                     : (react_1["default"].createElement(antd_1.Button.Group, { className: Header_module_scss_1["default"]["button-group"] },
                         react_1["default"].createElement(react_router_dom_1.Link, { to: "signIn" },

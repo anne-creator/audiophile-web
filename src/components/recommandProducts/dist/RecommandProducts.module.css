@@ -1,9 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet');
-:root {
-  font-size: 62.5%;
-  font-family: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-}
-
 .ZX9 {
   width: 100%;
   min-height: 56rem;
@@ -40,7 +34,6 @@
 }
 .ZX9__detail__new {
   font-size: 14px;
-  font-family: "Manrope";
   font-weight: normal;
   font-style: normal;
   letter-spacing: 10px;
@@ -49,7 +42,6 @@
 }
 .ZX9__detail__title {
   font-size: 56px;
-  font-family: "Manrope";
   font-weight: bolder;
   font-style: normal;
   line-height: 58px;
@@ -59,7 +51,6 @@
 }
 .ZX9__detail__description {
   font-size: 15px;
-  font-family: "Manrope";
   line-height: 25px;
   text-decoration: none;
   color: #fcfcfd;
@@ -147,7 +138,7 @@
 }
 
 .button-primary {
-  font-size: 13px;
+  font-size: 16px;
   font-family: "Roboto";
   font-weight: bolder;
   font-style: normal;
@@ -156,7 +147,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1.5rem 2rem;
+  padding: 1.5rem 1rem;
   cursor: pointer;
   background-color: #141414 !important;
   color: #fcfcfd;
@@ -175,7 +166,7 @@
 }
 
 .button__secondary {
-  font-size: 13px;
+  font-size: 16px;
   font-family: "Roboto";
   font-weight: bolder;
   font-style: normal;
@@ -184,7 +175,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1.5rem 2rem;
+  padding: 1.5rem 1rem;
   cursor: pointer;
   background-color: transparent !important;
   color: #141414;
