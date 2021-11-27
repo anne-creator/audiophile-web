@@ -21,39 +21,34 @@ interface PropsType {
 
 export const ProductPage: React.FC<PropsType> = () => {
     const { productId } = useParams<PropsType>();
+    console.log(`productId is ${productId}`);
     const dispatch = useDispatch();
     const jwt = useSelector(s => s.user.token);
     const history = useHistory();
 
 
-    /** Get product by its productid */
+    /** Get product by its productId */
     useEffect(() => {
         dispatch(getProductItem(`${productId}`))
-    }, []);
+    }, [productId]);
     const data = useSelector(s => s.productItem.data)
     const error = useSelector((s) => s.productItem.error);
     const loading = useSelector((s) => s.productItem.loading);
     const productItem = data?.function
 
-    //handle product quantity
     let [productQuantity, setProductQuantity] = useState<number>(1);
-    let [cartItem, setCartItem] = useState<{}>({
-        productId: productItem?.productId,
-        productName: productItem?.productName,
-        quantity: 1,
-        ifChecked: true,
-        price: productItem?.price * 1,
-        singleItemtotalPrice: productItem?.price,
-        image: productItem?.imageSrcList?.productImg,
-    });
+    let [cartItem, setCartItem] = useState<{}>();
+    // let str = JSON.stringify(cartItem, null, 4);
+    // console.log(`the new defualt cartItem is ${str}`);
 
+    //handle product quantity
     const handleProductQuantity = (num: number) => {
         if (num === 1 && productQuantity <= 99 || num === -1 && productQuantity >= 1) {
             setProductQuantity(productQuantity + num);
         }
     }
 
-    /** update cartItem whenever productQuantity changes */
+    /** update cartItem whenever productQuantity or productId changes */
     useEffect(() => {
         setCartItem({
             productId: productItem?.productId,
@@ -64,13 +59,16 @@ export const ProductPage: React.FC<PropsType> = () => {
             singleItemTotalPrice: productItem?.price * productQuantity,
             image: productItem?.imageSrcList?.categoryImg,
         })
-    }, [productQuantity, productId])
+        let str1 = JSON.stringify(cartItem, null, 4);
+        console.log(`cartItem is been updated ${str1}`);
+    }, [productQuantity, productId, productItem])
     /** dispatch cartItem to store when clicked add to cart */
-
     const handleAddtoCart = () => {
         if (!jwt) {
             history.push(`/signIn`);
         } else {
+            let str2 = JSON.stringify(cartItem, null, 4);
+            console.log(`cartItem being add is ${str2}`);
             dispatch(addToCart(cartItem));
             setProductQuantity(0);
         }

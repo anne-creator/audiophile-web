@@ -31,6 +31,15 @@
 }
 .checkout__left {
   width: 50.69vw;
+  padding: 5.4rem 4.8rem;
+}
+.checkout__left__billing__title {
+  font-size: 13px;
+  font-weight: bolder;
+  font-style: normal;
+  line-height: 25px;
+  letter-spacing: 0.93px;
+  text-decoration: none;
 }
 .checkout__right {
   width: 24.3vw;
@@ -44,4 +53,57 @@
   .checkout__left, .checkout__right {
     width: 100%;
   }
+}
+.checkout__billing {
+  display: grid;
+}
+.checkout__billing__title {
+  font-size: 18px;
+  font-weight: bolder;
+  font-style: normal;
+  letter-spacing: 1.29px;
+  text-decoration: none;
+  margin-bottom: 1.6rem;
+}
+.checkout__billing__content {
+  display: grid;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 1rem;
+  margin-bottom: 5.3rem;
+}
+.checkout__input-container {
+  display: flex;
+  flex-direction: column;
+}
+.checkout__input-label {
+  font-family: Manrope;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: -0.214286px;
+  margin-bottom: 0.9rem;
+}
+.checkout__input {
+  margin: 0;
+  list-style: none;
+  min-width: 0;
+  padding: 1rem 0.9rem;
+  color: #141414;
+  line-height: 1.5715;
+  background-color: #fff;
+  border: 1px solid #CFCFCF;
+  font-family: Manrope;
+  letter-spacing: 2px;
+  font-size: 14px;
+  line-height: 19px;
+  border-radius: 8px;
+  transition: all 0.3s;
+}
+.checkout__input:focus {
+  border-color: #fdb97d;
+  box-shadow: 0 0 0 2px rgba(253, 185, 125, 0.3);
 }

@@ -144,3 +144,12 @@ $gap-small: .6rem;
     line-height: 25px;
     text-decoration: none;
 }
+
+@mixin text-style-label {
+    font-family: Manrope;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: -0.214286px;
+}
