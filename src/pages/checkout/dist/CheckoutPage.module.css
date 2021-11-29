@@ -11,6 +11,7 @@
   line-height: 36px;
   letter-spacing: 1.14px;
   text-decoration: none;
+  margin-bottom: 2.5rem;
 }
 .checkout__seperator {
   height: 0.1rem;
@@ -106,4 +107,120 @@
 .checkout__input:focus {
   border-color: #fdb97d;
   box-shadow: 0 0 0 2px rgba(253, 185, 125, 0.3);
+}
+.checkout__right {
+  background-color: white;
+  padding: 3.2rem;
+}
+.checkout__summary {
+  align-items: center;
+}
+.checkout__summary__title {
+  font-size: 18px;
+  font-weight: bolder;
+  font-style: normal;
+  letter-spacing: 1.29px;
+  text-decoration: none;
+  margin-bottom: 2rem;
+}
+.checkout__summary__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2vw;
+}
+.checkout__summary__price {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cartItem__info {
+  flex: auto;
+  display: flex;
+  align-items: center;
+}
+.cartItem__info__img-container {
+  height: 4.44vw;
+  width: 4.44vw;
+  margin-right: 1.11vw;
+}
+.cartItem__info__img-container img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.cartItem__info__title {
+  font-size: 15px;
+  line-height: 25px;
+  text-decoration: none;
+}
+.cartItem__info__price {
+  font-size: 13px;
+  font-weight: bolder;
+  font-style: normal;
+  line-height: 25px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  letter-spacing: 0;
+  opacity: 0.7;
+  font-weight: 500;
+}
+.cartItem__info .cartItem__quanlity {
+  flex: 1rem;
+  font-size: 15px;
+  line-height: 25px;
+  text-decoration: none;
+}
+
+.price__left {
+  font-size: 15px;
+  line-height: 25px;
+  text-decoration: none;
+  font-weight: 400;
+  opacity: 0.7;
+}
+
+.price__right {
+  font-size: 15px;
+  line-height: 25px;
+  text-decoration: none;
+  text-align: right;
+  font-weight: 700;
+}
+
+.button__container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1vw;
+}
+
+.button-primary {
+  font-size: 13px;
+  font-weight: bolder;
+  font-style: normal;
+  letter-spacing: 1px;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  cursor: pointer;
+  background-color: #D87D4A !important;
+  color: #fcfcfd;
+  width: 8rem !important;
+  height: 2.4rem !important;
+  border: none !important;
+}
+.button-primary > span {
+  margin-top: 0.2rem !important;
+}
+.button-primary:hover {
+  background-color: #c6542b !important;
+  transform: translateY(-0.3rem) !important;
+}
+.button-primary:active {
+  border-color: #D87D4A !important;
+  background: #D87D4A !important;
+  transform: translateY(0.3rem) !important;
 }

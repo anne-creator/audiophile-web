@@ -1,0 +1,4 @@
+@import "../../index.css";
+.orderPlacedPopUp {
+  min-height: 50vh;
+}

@@ -3,15 +3,13 @@ exports.__esModule = true;
 exports.CheckoutPage = void 0;
 var react_1 = require("react");
 var CheckoutPage_module_scss_1 = require("./CheckoutPage.module.scss");
-var hooks_1 = require("../../redux/hooks");
 var mainLayout_1 = require("../../layouts/mainLayout");
 var antd_1 = require("antd");
+var react_router_dom_1 = require("react-router-dom");
 exports.CheckoutPage = function () {
-    // const dispatch = useDispatch();
-    var cartList = hooks_1.useSelector(function (s) { return s.cart.cartList; });
-    var cartTotalPrice = hooks_1.useSelector(function (s) { return s.cart.cartTotalPrice; });
-    console.log(cartList);
-    console.log(cartTotalPrice);
+    var state = react_router_dom_1.useLocation().state;
+    var cartList = state.cartList;
+    var cartTotalPrice = state.cartTotalPrice;
     return (react_1["default"].createElement(react_1["default"].Fragment, null,
         react_1["default"].createElement(mainLayout_1.MainLayout, null,
             react_1["default"].createElement("div", { className: CheckoutPage_module_scss_1["default"]['checkout'] },
@@ -71,6 +69,29 @@ exports.CheckoutPage = function () {
                                     react_1["default"].createElement("label", { className: CheckoutPage_module_scss_1["default"]['checkout__input-label'], htmlFor: "cvc" }, "CVC"),
                                     react_1["default"].createElement("input", { className: CheckoutPage_module_scss_1["default"]['checkout__input'], type: "text", id: "cvc", name: "cvc", placeholder: "CVC" }))))),
                     react_1["default"].createElement("div", { className: CheckoutPage_module_scss_1["default"]['checkout__right'] },
-                        "right",
-                        react_1["default"].createElement(antd_1.Button, { type: 'primary', className: CheckoutPage_module_scss_1["default"]['button-primary'] }, "Place Order")))))));
+                        react_1["default"].createElement("div", { className: CheckoutPage_module_scss_1["default"]['checkout__summary'] },
+                            react_1["default"].createElement("div", { className: CheckoutPage_module_scss_1["default"]['checkout__summary__title'] }, "SUMMARY"),
+                            cartList.map(function (item) {
+                                return (react_1["default"].createElement("div", { key: item.id, className: CheckoutPage_module_scss_1["default"]['checkout__summary__content'] },
+                                    react_1["default"].createElement("div", { className: CheckoutPage_module_scss_1["default"]['cartItem__info'] },
+                                        react_1["default"].createElement("div", { className: CheckoutPage_module_scss_1["default"]['cartItem__info__img-container'] },
+                                            react_1["default"].createElement("img", { src: item === null || item === void 0 ? void 0 : item.image, alt: item === null || item === void 0 ? void 0 : item.productName })),
+                                        react_1["default"].createElement("div", { className: CheckoutPage_module_scss_1["default"]['cartItem__info__detail'] },
+                                            react_1["default"].createElement("h1", { className: CheckoutPage_module_scss_1["default"]['cartItem__info__title'] }, item === null || item === void 0 ? void 0 : item.productName),
+                                            react_1["default"].createElement("div", { className: CheckoutPage_module_scss_1["default"]['cartItem__info__price'] }, "$ " + (item === null || item === void 0 ? void 0 : item.price)))),
+                                    react_1["default"].createElement("div", { className: CheckoutPage_module_scss_1["default"]['cartItem__quanlity'] }, "x " + (item === null || item === void 0 ? void 0 : item.quantity))));
+                            }),
+                            react_1["default"].createElement("div", { className: CheckoutPage_module_scss_1["default"]['checkout__summary__price'] },
+                                react_1["default"].createElement("div", { className: CheckoutPage_module_scss_1["default"]['price__left'] },
+                                    react_1["default"].createElement("div", { className: CheckoutPage_module_scss_1["default"]['price__before-tax'] }, "Price: "),
+                                    react_1["default"].createElement("div", { className: CheckoutPage_module_scss_1["default"]['price__tax'] }, "Tax: "),
+                                    react_1["default"].createElement("div", { className: CheckoutPage_module_scss_1["default"]['price__shipping'] }, "Shipping: "),
+                                    react_1["default"].createElement("div", { className: CheckoutPage_module_scss_1["default"]['price__after-tax'] }, "Total Price: ")),
+                                react_1["default"].createElement("div", { className: CheckoutPage_module_scss_1["default"]['price__right'] },
+                                    react_1["default"].createElement("div", { className: CheckoutPage_module_scss_1["default"]['price__before-tax-num'] }, cartTotalPrice),
+                                    react_1["default"].createElement("div", { className: CheckoutPage_module_scss_1["default"]['price__tax-num'] }, cartTotalPrice * 0.13),
+                                    react_1["default"].createElement("div", { className: CheckoutPage_module_scss_1["default"]['price__shipping-num'] }, "Free"),
+                                    react_1["default"].createElement("div", { className: CheckoutPage_module_scss_1["default"]['price__after-tax-num'] }, cartTotalPrice + cartTotalPrice * 0.13)))),
+                        react_1["default"].createElement("div", { className: CheckoutPage_module_scss_1["default"]['button__container'] },
+                            react_1["default"].createElement(antd_1.Button, { type: 'primary', className: CheckoutPage_module_scss_1["default"]['button-primary'] }, "Place Order"))))))));
 };

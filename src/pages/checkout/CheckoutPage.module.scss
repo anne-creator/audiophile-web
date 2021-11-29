@@ -9,6 +9,7 @@
 
     &__title {
         @include text-style-h3;
+        margin-bottom: 2.5rem;
     }
 
     &__seperator {
@@ -53,7 +54,7 @@
         }
     }
 
-    //\\\\\\\\\\\\\ input section for all 3 \\\\\\\\\\\\\\\
+    //\\\\\\\\\\\\\ Left: address and billing; input sections for all 3 \\\\\\\\\\\\\\\
     &__billing {
         display: grid;
 
@@ -106,6 +107,121 @@
         }
     }
 
-    //\\\\\\\\\\\\\ end of input\\\\\\\\\\\\\\\
+    //\\\\\\\\\\\\\ end of input of left \\\\\\\\\\\\\\\
+
+    //\\\\\\\\\\\\\ Left: address and billing; input sections for all 3 \\\\\\\\\\\\\\\
+    &__right {
+        background-color: white;
+        padding: 3.2rem;
+
+
+    }
+
+    // most layout is here
+    &__summary {
+        align-items: center;
+
+        &__title {
+            @include text-style-h6;
+            margin-bottom: 2rem;
+        }
+
+        &__content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2vw;
+        }
+
+        &__price {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+}
+
+.cartItem__info {
+    flex: auto;
+    display: flex;
+    align-items: center;
+
+
+    &__img-container {
+        height: 4.44vw;
+        width: 4.44vw;
+        margin-right: 1.11vw;
+
+        img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+
+        }
+    }
+
+    &__title {
+        @include text-style-title;
+    }
+
+    &__price {
+        @include text-style-nav;
+        letter-spacing: 0;
+        opacity: 0.7;
+        font-weight: 500;
+
+    }
+
+    .cartItem__quanlity {
+        flex: 1rem;
+        @include text-style-title;
+    }
+}
+
+.price__left {
+    @include text-style-title;
+    font-weight: 400;
+    opacity: .7;
+}
+
+.price__right {
+    @include text-style-title;
+    text-align: right;
+    font-weight: 700;
 
 }
+
+.button__container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1vw;
+}
+
+.button-primary {
+    @include text-style-button;
+    @include button-basic;
+    background-color: $color-primary !important;
+    color: $color-neutrals-8;
+    width: 8rem !important;
+    height: 2.4rem !important;
+    border: none !important;
+
+    &>span {
+        margin-top: 0.2rem !important;
+
+    }
+
+    &:hover {
+        background-color: $color-primary-dark !important;
+        transform: translateY(-.3rem) !important;
+    }
+
+    &:active {
+        border-color: $color-primary !important;
+        background: $color-primary !important;
+        transform: translateY(0.3rem) !important;
+
+    }
+}
+
+//\\\\\\\\\\\\\ end of input of right\\\\\\\\\\\\\\\

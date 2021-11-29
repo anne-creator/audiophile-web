@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styles from "./CartPage.module.scss";
-import { useParams, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { useSelector } from '../../redux/hooks'
 import { useDispatch } from "react-redux";
-import { clearCart, addToCart, changeProductQuantity, removeItem } from '../../redux/cartList/slice';
+import { clearCart, changeProductQuantity, removeItem } from '../../redux/cartList/slice';
 import { Button, Divider } from 'antd';
 import { MainLayout } from '../../layouts/mainLayout'
-import { Link } from 'react-router-dom'
 
 export const CartPage: React.FC = () => {
   const cartList = useSelector(s => s.cart.cartList);
@@ -14,18 +13,26 @@ export const CartPage: React.FC = () => {
 
   const dispatch = useDispatch();
   const history = useHistory();
-  // when we need to clear the cart
+
+  // when click clear the cart button
   const handleClearButton = () => {
     dispatch(clearCart());
-    history.push(`/checkout`)
+  }
+
+  // when click check out button
+  const dataPassToCheckout = { cartList, cartTotalPrice }
+  const handleCheckOutButton = () => {
+    dispatch(clearCart());
+    history.push({
+      pathname: '/checkout',
+      state: dataPassToCheckout // your data array of objects
+    })
   }
 
   //when click any +  or  - button in the cart
   const handleProductQuantity = (num: number, productId: number, itemQuantity: number, price) => {
     if (itemQuantity <= 1 && num === -1) {
-
       alert('If you wish to remove the item, click "remove it"');
-
     } else {
       dispatch(changeProductQuantity({ num, productId, itemQuantity, price }))
 
@@ -86,9 +93,7 @@ export const CartPage: React.FC = () => {
             </div>
 
           </div>
-          <Link to={`/checkout`}>
-            <Button type='primary' onClick={() => handleClearButton()} className={styles['button-primary']} > Check Out</Button>
-          </Link>
+          <Button type='primary' onClick={() => handleCheckOutButton()} className={styles['button-primary']} > Check Out</Button>
         </div>
       </div>
     </MainLayout>

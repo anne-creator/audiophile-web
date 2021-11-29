@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './App.module.css';
-import { HomePage, SignInPage, RegisterPage, CategoryPage, ProductPage, CartPage, CheckoutPage } from './pages'
+import { HomePage, SignInPage, RegisterPage, CategoryPage, ProductPage, CartPage, CheckoutPage, OrderPage } from './pages'
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 function App() {
@@ -16,6 +16,7 @@ function App() {
           <Route path="/productItem/:productId" component={ProductPage} />
           <Route path="/cart" component={CartPage} />
           <Route path="/checkout" component={CheckoutPage} />
+          <Route path="/order" component={OrderPage} />
           <Route render={() => <h1> 404 page not found </h1>} />
         </Switch>
       </BrowserRouter>

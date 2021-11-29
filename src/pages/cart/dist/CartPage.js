@@ -9,16 +9,23 @@ var react_redux_1 = require("react-redux");
 var slice_1 = require("../../redux/cartList/slice");
 var antd_1 = require("antd");
 var mainLayout_1 = require("../../layouts/mainLayout");
-var react_router_dom_2 = require("react-router-dom");
 exports.CartPage = function () {
     var cartList = hooks_1.useSelector(function (s) { return s.cart.cartList; });
     var cartTotalPrice = hooks_1.useSelector(function (s) { return s.cart.cartTotalPrice; });
     var dispatch = react_redux_1.useDispatch();
     var history = react_router_dom_1.useHistory();
-    // when we need to clear the cart
+    // when click clear the cart button
     var handleClearButton = function () {
         dispatch(slice_1.clearCart());
-        history.push("/checkout");
+    };
+    // when click check out button
+    var dataPassToCheckout = { cartList: cartList, cartTotalPrice: cartTotalPrice };
+    var handleCheckOutButton = function () {
+        dispatch(slice_1.clearCart());
+        history.push({
+            pathname: '/checkout',
+            state: dataPassToCheckout // your data array of objects
+        });
     };
     //when click any +  or  - button in the cart
     var handleProductQuantity = function (num, productId, itemQuantity, price) {
@@ -74,6 +81,5 @@ exports.CartPage = function () {
                             react_1["default"].createElement("div", { className: CartPage_module_scss_1["default"]['cart__tax-num'] }, cartTotalPrice * 0.13),
                             react_1["default"].createElement("div", { className: CartPage_module_scss_1["default"]['cart__shipping-num'] }, "Free"),
                             react_1["default"].createElement("div", { className: CartPage_module_scss_1["default"]['cart__after-tax-num'] }, cartTotalPrice * 1.13))),
-                    react_1["default"].createElement(react_router_dom_2.Link, { to: "/checkout" },
-                        react_1["default"].createElement(antd_1.Button, { type: 'primary', onClick: function () { return handleClearButton(); }, className: CartPage_module_scss_1["default"]['button-primary'] }, " Check Out")))))));
+                    react_1["default"].createElement(antd_1.Button, { type: 'primary', onClick: function () { return handleCheckOutButton(); }, className: CartPage_module_scss_1["default"]['button-primary'] }, " Check Out"))))));
 };
