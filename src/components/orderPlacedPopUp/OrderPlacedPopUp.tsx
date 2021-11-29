@@ -8,6 +8,10 @@ import { useLocation } from 'react-router-dom';
 
 export const OrderPlacedPopUp: React.FC = () => {
     return (<>
-        <div>order page</div>
+        <div className='popup'>
+            <div className='popup_inner'>
+                the pop up window
+            </div>
+        </div>
     </>)
 }
