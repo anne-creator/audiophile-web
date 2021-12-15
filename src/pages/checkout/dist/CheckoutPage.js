@@ -6,6 +6,7 @@ var CheckoutPage_module_scss_1 = require("./CheckoutPage.module.scss");
 var mainLayout_1 = require("../../layouts/mainLayout");
 var antd_1 = require("antd");
 var react_router_dom_1 = require("react-router-dom");
+var checkmark_png_1 = require("../../assets/shared/checkmark.png");
 exports.CheckoutPage = function () {
     var state = react_router_dom_1.useLocation().state;
     var cartList = state.cartList;
@@ -45,11 +46,25 @@ exports.CheckoutPage = function () {
     var _v = react_1.useState(false), showPopUpWindow = _v[0], setShowPopUpWindow = _v[1];
     var handleCheckOutButton = function () {
         setShowPopUpWindow(!showPopUpWindow);
-        dispatch(createNewOrder(orderInfo));
+        // dispatch(createNewOrder(orderInfo))
+    };
+    var history = react_router_dom_1.useHistory();
+    var handleBackHomeButton = function () {
+        history.push("/");
     };
     return (react_1["default"].createElement(react_1["default"].Fragment, null,
         react_1["default"].createElement(mainLayout_1.MainLayout, null,
             react_1["default"].createElement("div", { className: CheckoutPage_module_scss_1["default"]['checkout'] },
+                (showPopUpWindow) ?
+                    (react_1["default"].createElement("div", { className: CheckoutPage_module_scss_1["default"]['popup'] },
+                        react_1["default"].createElement("div", { className: CheckoutPage_module_scss_1["default"]['popup__window'] },
+                            react_1["default"].createElement("img", { className: CheckoutPage_module_scss_1["default"]['popup__window__checkmark'], src: checkmark_png_1["default"], alt: "checkmark" }),
+                            react_1["default"].createElement("h4", { className: CheckoutPage_module_scss_1["default"]['popup__window__thankyou'] }, "THANK YOU FOR YOUR ORDER"),
+                            react_1["default"].createElement("p", { className: CheckoutPage_module_scss_1["default"]['popup__window__content'] }, "You will receive an email confirmation shortly."),
+                            react_1["default"].createElement("button", { className: CheckoutPage_module_scss_1["default"]['button-primary__popup'], onClick: function () { return handleBackHomeButton(); } }, "BACK TO HOME")),
+                        react_1["default"].createElement("div", { className: CheckoutPage_module_scss_1["default"]['popup__background'] })))
+                    :
+                        (null),
                 react_1["default"].createElement("h3", { className: CheckoutPage_module_scss_1["default"]['checkout__title'] }, "CHECKOUT"),
                 react_1["default"].createElement("div", { className: CheckoutPage_module_scss_1["default"]['checkout__content'] },
                     react_1["default"].createElement("div", { className: CheckoutPage_module_scss_1["default"]['checkout__left'] },
@@ -135,9 +150,9 @@ exports.CheckoutPage = function () {
                                     react_1["default"].createElement("div", { className: CheckoutPage_module_scss_1["default"]['price__after-tax'] }, "Total Price: ")),
                                 react_1["default"].createElement("div", { className: CheckoutPage_module_scss_1["default"]['price__right'] },
                                     react_1["default"].createElement("div", { className: CheckoutPage_module_scss_1["default"]['price__before-tax-num'] }, cartTotalPrice),
-                                    react_1["default"].createElement("div", { className: CheckoutPage_module_scss_1["default"]['price__tax-num'] }, cartTotalPrice * 0.13),
+                                    react_1["default"].createElement("div", { className: CheckoutPage_module_scss_1["default"]['price__tax-num'] }, (cartTotalPrice * 0.13).toFixed(2)),
                                     react_1["default"].createElement("div", { className: CheckoutPage_module_scss_1["default"]['price__shipping-num'] }, "Free"),
-                                    react_1["default"].createElement("div", { className: CheckoutPage_module_scss_1["default"]['price__after-tax-num'] }, cartTotalPrice + cartTotalPrice * 0.13)))),
+                                    react_1["default"].createElement("div", { className: CheckoutPage_module_scss_1["default"]['price__after-tax-num'] }, (cartTotalPrice + cartTotalPrice * 0.13).toFixed(2))))),
                         react_1["default"].createElement("div", { className: CheckoutPage_module_scss_1["default"]['button__container'] },
                             react_1["default"].createElement(antd_1.Button, { type: 'primary', onClick: function () { return handleCheckOutButton(); }, className: CheckoutPage_module_scss_1["default"]['button-primary'] }, "Place Order"))))))));
 };

@@ -65,10 +65,10 @@ exports.CartPage = function () {
                                         item.quantity)),
                                 react_1["default"].createElement("div", { className: CartPage_module_scss_1["default"]['cart__cartItem__increase-item'], onClick: function () { return handleProductQuantity(1, item === null || item === void 0 ? void 0 : item.productId, item === null || item === void 0 ? void 0 : item.quantity, item === null || item === void 0 ? void 0 : item.price); } },
                                     react_1["default"].createElement("span", null, "+")),
-                                react_1["default"].createElement(antd_1.Button, { type: 'primary', onClick: function () { return handleRemoveButton(item === null || item === void 0 ? void 0 : item.productId); } }, "remove"))),
+                                react_1["default"].createElement(antd_1.Button, { className: CartPage_module_scss_1["default"]['button-secondary'], type: 'primary', onClick: function () { return handleRemoveButton(item === null || item === void 0 ? void 0 : item.productId); } }, "remove"))),
                         react_1["default"].createElement(antd_1.Divider, { className: CartPage_module_scss_1["default"]['cart__cartItem__divider'] })));
                 }),
-                react_1["default"].createElement(antd_1.Button, { type: 'primary', className: CartPage_module_scss_1["default"]['button-secondary'], onClick: function () { return handleClearButton(); } }, "Clear cart"),
+                react_1["default"].createElement(antd_1.Button, { type: 'primary', className: CartPage_module_scss_1["default"]['button-primary'], onClick: function () { return handleClearButton(); } }, "Clear cart"),
                 react_1["default"].createElement("div", { className: CartPage_module_scss_1["default"]['cart__price'] },
                     react_1["default"].createElement("div", { className: CartPage_module_scss_1["default"]['cart__price__container'] },
                         react_1["default"].createElement("div", { className: CartPage_module_scss_1["default"]['cart__price__left'] },
@@ -78,8 +78,8 @@ exports.CartPage = function () {
                             react_1["default"].createElement("div", { className: CartPage_module_scss_1["default"]['cart__after-tax'] }, "Total Price: ")),
                         react_1["default"].createElement("div", { className: CartPage_module_scss_1["default"]['cart__price__right'] },
                             react_1["default"].createElement("div", { className: CartPage_module_scss_1["default"]['cart__before-tax-num'] }, cartTotalPrice),
-                            react_1["default"].createElement("div", { className: CartPage_module_scss_1["default"]['cart__tax-num'] }, cartTotalPrice * 0.13),
+                            react_1["default"].createElement("div", { className: CartPage_module_scss_1["default"]['cart__tax-num'] }, (cartTotalPrice * 0.13).toFixed(2)),
                             react_1["default"].createElement("div", { className: CartPage_module_scss_1["default"]['cart__shipping-num'] }, "Free"),
-                            react_1["default"].createElement("div", { className: CartPage_module_scss_1["default"]['cart__after-tax-num'] }, cartTotalPrice * 1.13))),
+                            react_1["default"].createElement("div", { className: CartPage_module_scss_1["default"]['cart__after-tax-num'] }, (cartTotalPrice * 1.13).toFixed(2)))),
                     react_1["default"].createElement(antd_1.Button, { type: 'primary', onClick: function () { return handleCheckOutButton(); }, className: CartPage_module_scss_1["default"]['button-primary'] }, " Check Out"))))));
 };

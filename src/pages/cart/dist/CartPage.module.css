@@ -76,7 +76,10 @@
   border-radius: 8px;
 }
 .cart__cartItem__decrease-item span, .cart__cartItem__quantity span, .cart__cartItem__increase-item span {
-  margin-top: -0.15rem;
+  margin-top: -0.05rem;
+}
+.cart__cartItem__decrease-item:hover, .cart__cartItem__quantity:hover, .cart__cartItem__increase-item:hover {
+  cursor: pointer;
 }
 .cart__cartItem__decrease-item {
   background-color: #f1f1f1;
@@ -144,9 +147,6 @@
   height: 2.4rem !important;
   border: none !important;
 }
-.button-primary > span {
-  margin-top: 0.2rem !important;
-}
 .button-primary:hover {
   background-color: #c6542b !important;
   transform: translateY(-0.3rem) !important;
@@ -155,4 +155,31 @@
   border-color: #D87D4A !important;
   background: #D87D4A !important;
   transform: translateY(0.3rem) !important;
+}
+
+.button-secondary {
+  font-size: 13px;
+  font-weight: bolder;
+  font-style: normal;
+  letter-spacing: 1px;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  cursor: pointer;
+  color: #1f3864 !important;
+  border: none !important;
+  background-color: transparent !important;
+}
+.button-secondary > span {
+  margin-top: -0.2rem !important;
+}
+.button-secondary:hover {
+  transform: translateY(-0.1rem) !important;
+  color: #141414 !important;
+}
+.button-secondary:active {
+  color: #1f3864 !important;
+  transform: translateY(0.1rem) !important;
 }

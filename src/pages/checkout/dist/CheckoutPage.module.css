@@ -3,6 +3,7 @@
   min-height: 50vh;
   padding: 4rem 11.6vw 16.8rem 11.6vw;
   background-color: #F5E7DB;
+  display: relative;
 }
 .checkout__title {
   font-size: 32px;
@@ -133,6 +134,47 @@
   display: flex;
   justify-content: space-between;
 }
+.checkout .popup__window {
+  background-color: #fff;
+  width: max(40vw, 150px);
+  height: 40vh;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 8px;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px;
+}
+.checkout .popup__window__thankyou {
+  font-size: 24px;
+  font-weight: bolder;
+  font-style: normal;
+  letter-spacing: 1.71px;
+  text-decoration: none;
+  margin-bottom: -2rem;
+}
+.checkout .popup__window__content {
+  margin-bottom: -2rem;
+}
+.checkout .popup__window__checkmark {
+  width: 6rem;
+  height: 6rem;
+}
+.checkout .popup__background {
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #000;
+  opacity: 0.7;
+}
 
 .cartItem__info {
   flex: auto;
@@ -220,6 +262,36 @@
   transform: translateY(-0.3rem) !important;
 }
 .button-primary:active {
+  border-color: #D87D4A !important;
+  background: #D87D4A !important;
+  transform: translateY(0.3rem) !important;
+}
+
+.button-primary__popup {
+  font-size: 13px;
+  font-weight: bolder;
+  font-style: normal;
+  letter-spacing: 1px;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  cursor: pointer;
+  background-color: #D87D4A !important;
+  color: #fcfcfd;
+  width: 80% !important;
+  height: 2.4rem !important;
+  border: none !important;
+}
+.button-primary__popup > span {
+  margin-top: 0.2rem !important;
+}
+.button-primary__popup:hover {
+  background-color: #c6542b !important;
+  transform: translateY(-0.3rem) !important;
+}
+.button-primary__popup:active {
   border-color: #D87D4A !important;
   background: #D87D4A !important;
   transform: translateY(0.3rem) !important;

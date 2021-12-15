@@ -5,7 +5,7 @@ import { signIn } from '../../redux/user/slice'
 import { UserLayout } from '../../layouts/userLayout'
 import { useDispatch } from 'react-redux'
 import { useSelector } from '../../redux/hooks'
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import { useEffect } from "react";
 const layout = {
     labelCol: { span: 8 },
@@ -74,6 +74,9 @@ export const SignInPage = (props) => {
                         </Button>
                     </Form.Item>
                 </Form>
+                <Link to="/register">
+                    <p className={styles['Signin__go-register']}>Don't have an account yet, Go register</p>
+                </Link>
             </div>
         </UserLayout>
     );

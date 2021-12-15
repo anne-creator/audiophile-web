@@ -66,7 +66,7 @@ export const CartPage: React.FC = () => {
                   <div className={styles['cart__cartItem__quantity']} ><span>x{item?.quantity}</span></div>
                   <div className={styles['cart__cartItem__increase-item']} onClick={() => handleProductQuantity(1, item?.productId, item?.quantity, item?.price)} ><span>+</span></div>
                   {/* remove button */}
-                  <Button type='primary' onClick={() => handleRemoveButton(item?.productId)} >remove</Button>
+                  <Button className={styles['button-secondary']} type='primary' onClick={() => handleRemoveButton(item?.productId)} >remove</Button>
                 </div>
               </div>
               <Divider className={styles['cart__cartItem__divider']} />
@@ -74,7 +74,7 @@ export const CartPage: React.FC = () => {
 
           )
         })}
-        <Button type='primary' className={styles['button-secondary']} onClick={() => handleClearButton()}>Clear cart</Button>
+        <Button type='primary' className={styles['button-primary']} onClick={() => handleClearButton()}>Clear cart</Button>
         <div className={styles['cart__price']} >
           <div className={styles['cart__price__container']}>
             {/* the Price: Tax: Total Price:  */}
@@ -87,9 +87,9 @@ export const CartPage: React.FC = () => {
             {/* the actual price number */}
             <div className={styles['cart__price__right']}>
               <div className={styles['cart__before-tax-num']}>{cartTotalPrice}</div>
-              <div className={styles['cart__tax-num']}>{cartTotalPrice * 0.13}</div>
+              <div className={styles['cart__tax-num']}>{(cartTotalPrice * 0.13).toFixed(2)}</div>
               <div className={styles['cart__shipping-num']}>Free</div>
-              <div className={styles['cart__after-tax-num']}>{cartTotalPrice * 1.13}</div>
+              <div className={styles['cart__after-tax-num']}>{(cartTotalPrice * 1.13).toFixed(2)}</div>
             </div>
 
           </div>

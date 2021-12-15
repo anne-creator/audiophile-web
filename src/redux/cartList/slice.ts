@@ -62,6 +62,7 @@ export const cartListSlice = createSlice({
             state.cartQuantity -= state.cartList[itemIndex].quantity
             state.cartTotalPrice -= state.cartList[itemIndex].singleItemTotalPrice;
             state.cartList.splice(itemIndex,1);
+            
 
         }
     }

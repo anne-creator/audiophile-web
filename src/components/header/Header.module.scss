@@ -1,4 +1,4 @@
-@import '../../index.scss';
+@import '../../base.scss';
 
 .header {
     width: 100%;
@@ -156,15 +156,15 @@
             align-items: center;
             justify-content: center;
             background-color: $color-primary;
-            height: 2rem;
-            width: 2rem;
+            height: 1.5rem;
+            width: 1.5rem;
             border-radius: 50%;
         }
 
         &__cart-item {
             color: white;
             @include text-style-title;
-            margin-left: -0.15rem;
+            margin-left: -0.05rem;
         }
 
         // cart end

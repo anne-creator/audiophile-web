@@ -54,7 +54,7 @@ var userLayout_1 = require("../../layouts/userLayout");
 var antd_1 = require("antd");
 var axios_1 = require("axios");
 var react_router_dom_1 = require("react-router-dom");
-axios_1["default"].defaults.headers['x-icode'] = '97FB43CDC6B38D23';
+axios_1["default"].defaults.headers['x-icode'] = 'B5EA3AEF306DE5CF';
 var layout = {
     labelCol: { span: 8 },
     wrapperCol: { span: 16 }

@@ -1,3 +1,5 @@
+/** conect login status with a JWT token  */
+
 import { createSlice, PayloadAction, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 axios.defaults.headers['x-icode'] = 'BF575F644E468D19'

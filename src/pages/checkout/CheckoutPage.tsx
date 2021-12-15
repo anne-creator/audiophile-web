@@ -3,8 +3,9 @@ import styles from './CheckoutPage.module.scss'
 import { useSelector } from '../../redux/hooks'
 import { MainLayout } from '../../layouts/mainLayout'
 import { Button } from 'antd'
-import { useLocation } from 'react-router-dom';
-import { order } from '../order/OrderPage.module.scss'
+import { useLocation, useHistory } from 'react-router-dom';
+import checkmark from '../../assets/shared/checkmark.png'
+// import { order } from '../order/OrderPage.module.scss'
 interface stateType {
     cartList: any;
     cartTotalPrice: number;
@@ -12,7 +13,6 @@ interface stateType {
 
 export const CheckoutPage: React.FC = () => {
     const { state } = useLocation<stateType>();
-
     const cartList = state.cartList;
     const cartTotalPrice = state.cartTotalPrice;
 
@@ -60,16 +60,32 @@ export const CheckoutPage: React.FC = () => {
     const [showPopUpWindow, setShowPopUpWindow] = useState<boolean>(false);
     const handleCheckOutButton = () => {
         setShowPopUpWindow(!showPopUpWindow);
-        dispatch(createNewOrder(orderInfo))
+        // dispatch(createNewOrder(orderInfo))
 
     }
 
-
-
-
+    const history = useHistory();
+    const handleBackHomeButton = () => {
+        history.push("/")
+    }
     return (<>
         <MainLayout>
+
             <div className={styles['checkout']} >
+                {/* popup order confirmation window */}
+                {(showPopUpWindow) ?
+                    (<div className={styles['popup']}>
+                        <div className={styles['popup__window']} >
+                            <img className={styles['popup__window__checkmark']} src={checkmark} alt="checkmark" />
+                            <h4 className={styles['popup__window__thankyou']} >THANK YOU FOR YOUR ORDER</h4>
+                            <p className={styles['popup__window__content']} >You will receive an email confirmation shortly.</p>
+                            <button className={styles['button-primary__popup']} onClick={() => handleBackHomeButton()}>BACK TO HOME</button>
+                        </div>
+                        <div className={styles['popup__background']}></div>
+                    </div>)
+                    :
+                    (null)
+                }
                 <h3 className={styles['checkout__title']} >CHECKOUT</h3>
                 <div className={styles['checkout__content']}>
                     {/* Left: address and billing */}
@@ -195,9 +211,9 @@ export const CheckoutPage: React.FC = () => {
                                 {/* the actual price number */}
                                 <div className={styles['price__right']}>
                                     <div className={styles['price__before-tax-num']}>{cartTotalPrice}</div>
-                                    <div className={styles['price__tax-num']}>{cartTotalPrice * 0.13}</div>
+                                    <div className={styles['price__tax-num']}>{(cartTotalPrice * 0.13).toFixed(2)}</div>
                                     <div className={styles['price__shipping-num']}>Free</div>
-                                    <div className={styles['price__after-tax-num']}>{cartTotalPrice + cartTotalPrice * 0.13}</div>
+                                    <div className={styles['price__after-tax-num']}>{(cartTotalPrice + cartTotalPrice * 0.13).toFixed(2)}</div>
                                 </div>
                                 {/* </div> */}
                             </div>

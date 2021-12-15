@@ -57,5 +57,7 @@ exports.SignInPage = function (props) {
                 react_1["default"].createElement(antd_1.Form.Item, { label: "Password", name: "password", rules: [{ required: true, message: "Please input your password!" }] },
                     react_1["default"].createElement(antd_1.Input.Password, null)),
                 react_1["default"].createElement(antd_1.Form.Item, __assign({}, tailLayout),
-                    react_1["default"].createElement(antd_1.Button, { className: SignInPage_module_scss_1["default"]['button-primary'], type: "primary", htmlType: "submit", loading: loading }, "Submit"))))));
+                    react_1["default"].createElement(antd_1.Button, { className: SignInPage_module_scss_1["default"]['button-primary'], type: "primary", htmlType: "submit", loading: loading }, "Submit"))),
+            react_1["default"].createElement(react_router_dom_1.Link, { to: "/register" },
+                react_1["default"].createElement("p", { className: SignInPage_module_scss_1["default"]['Signin__go-register'] }, "Don't have an account yet, Go register")))));
 };

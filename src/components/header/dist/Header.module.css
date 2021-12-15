@@ -30,7 +30,6 @@
 .header .nav__items .item {
   color: white;
   font-size: 13px;
-  font-family: Roboto;
   font-weight: bolder;
   font-style: normal;
   line-height: 25px;
@@ -134,8 +133,8 @@
   align-items: center;
   justify-content: center;
   background-color: #D87D4A;
-  height: 2rem;
-  width: 2rem;
+  height: 1.5rem;
+  width: 1.5rem;
   border-radius: 50%;
 }
 .header__right__cart-item {
@@ -143,7 +142,7 @@
   font-size: 15px;
   line-height: 25px;
   text-decoration: none;
-  margin-left: -0.15rem;
+  margin-left: -0.05rem;
 }
 .header__right .button__login,
 .header__right .button__sign-out {
@@ -152,8 +151,7 @@
   align-items: center;
   padding: 1.5rem 2rem;
   cursor: pointer;
-  font-size: 16px;
-  font-family: "Roboto";
+  font-size: 13px;
   font-weight: bolder;
   font-style: normal;
   letter-spacing: 1px;
@@ -191,8 +189,7 @@
   padding: 1.5rem 2rem;
   cursor: pointer;
   color: #f1f1f1;
-  font-size: 16px;
-  font-family: "Roboto";
+  font-size: 13px;
   font-weight: bolder;
   font-style: normal;
   letter-spacing: 1px;
@@ -219,7 +216,6 @@
   color: white;
   gap: 0.6rem;
   font-size: 13px;
-  font-family: Roboto;
   font-weight: bolder;
   font-style: normal;
   line-height: 25px;
@@ -237,7 +233,6 @@
 .hidden .item {
   color: white !important;
   font-size: 13px;
-  font-family: Roboto;
   font-weight: bolder;
   font-style: normal;
   line-height: 25px;
@@ -265,8 +260,7 @@
   align-items: center;
   padding: 1.5rem 2rem;
   cursor: pointer;
-  font-size: 16px;
-  font-family: "Roboto";
+  font-size: 13px;
   font-weight: bolder;
   font-style: normal;
   letter-spacing: 1px;
@@ -294,8 +288,7 @@
   padding: 1.5rem 2rem;
   cursor: pointer;
   color: #f1f1f1;
-  font-size: 16px;
-  font-family: "Roboto";
+  font-size: 13px;
   font-weight: bolder;
   font-style: normal;
   letter-spacing: 1px;
