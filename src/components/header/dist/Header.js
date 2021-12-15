@@ -63,8 +63,8 @@ exports.Header = function () {
                         react_1["default"].createElement(react_router_dom_1.Link, { to: "register" },
                             react_1["default"].createElement(antd_1.Button, { className: Header_module_scss_1["default"]['button__signup'] }, "Register"))))))),
         showLinks ?
-            react_1["default"].createElement("div", null,
-                react_1["default"].createElement("ul", { className: Header_module_scss_1["default"][showLinks ? 'hidden' : ''] },
+            react_1["default"].createElement("div", { className: Header_module_scss_1["default"][showLinks ? 'hidden' : ''] },
+                react_1["default"].createElement("ul", null,
                     react_1["default"].createElement(react_router_dom_1.Link, { to: '/' },
                         react_1["default"].createElement("li", { className: Header_module_scss_1["default"]['item'] }, "HOME")),
                     react_1["default"].createElement(react_router_dom_1.Link, { to: '/categories/1' },
@@ -72,12 +72,21 @@ exports.Header = function () {
                     react_1["default"].createElement(react_router_dom_1.Link, { to: '/categories/1' },
                         react_1["default"].createElement("li", { className: Header_module_scss_1["default"]['item'] }, "SPEAKERS")),
                     react_1["default"].createElement(react_router_dom_1.Link, { to: '/categories/1' },
-                        react_1["default"].createElement("li", { className: Header_module_scss_1["default"]['item'] }, "EARPHONES")),
-                    react_1["default"].createElement("li", null,
-                        react_1["default"].createElement(react_router_dom_1.Link, { to: "signIn" },
-                            react_1["default"].createElement(antd_1.Button, { type: 'primary', className: Header_module_scss_1["default"]['button__login'] }, "Sign In"))),
-                    react_1["default"].createElement("li", null,
-                        react_1["default"].createElement(react_router_dom_1.Link, { to: "register" },
-                            react_1["default"].createElement(antd_1.Button, { className: Header_module_scss_1["default"]['button__signup'] }, "Register")))))
+                        react_1["default"].createElement("li", { className: Header_module_scss_1["default"]['item'] }, "EARPHONES"))),
+                (jwt) ? (react_1["default"].createElement("div", { className: Header_module_scss_1["default"]["once-signed-in"] },
+                    react_1["default"].createElement("div", { className: Header_module_scss_1["default"]['user-info'] },
+                        react_1["default"].createElement("div", { className: Header_module_scss_1["default"]['header__right__user-name'] }, "Welcome,  " + username),
+                        react_1["default"].createElement(react_router_dom_1.Link, { to: "/cart", className: Header_module_scss_1["default"]['header__right__link'] },
+                            react_1["default"].createElement("div", { className: Header_module_scss_1["default"]['header__right__cart-container'] },
+                                react_1["default"].createElement(icons_1.ShoppingCartOutlined, { className: Header_module_scss_1["default"]['header__right__cart'] }),
+                                react_1["default"].createElement("div", { className: Header_module_scss_1["default"]['header__right__cart-item-container'] },
+                                    react_1["default"].createElement("div", { className: Header_module_scss_1["default"]['header__right__cart-item'] }, cartQuantity))))),
+                    react_1["default"].createElement(antd_1.Button, { className: Header_module_scss_1["default"]['button__sign-out'], type: 'primary', onClick: onLogout }, "Sign Out")))
+                    :
+                        (react_1["default"].createElement("div", { className: Header_module_scss_1["default"]['once-signed-out'] },
+                            react_1["default"].createElement(react_router_dom_1.Link, { to: "signIn" },
+                                react_1["default"].createElement(antd_1.Button, { type: 'primary', className: Header_module_scss_1["default"]['button__login'] }, "Sign In")),
+                            react_1["default"].createElement(react_router_dom_1.Link, { to: "register" },
+                                react_1["default"].createElement(antd_1.Button, { className: Header_module_scss_1["default"]['button__signup'] }, "Register")))))
             : null));
 };

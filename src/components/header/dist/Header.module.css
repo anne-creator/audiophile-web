@@ -133,8 +133,8 @@
   align-items: center;
   justify-content: center;
   background-color: #D87D4A;
-  height: 1.5rem;
-  width: 1.5rem;
+  height: 1.6rem;
+  width: 1.6rem;
   border-radius: 50%;
 }
 .header__right__cart-item {
@@ -156,9 +156,9 @@
   font-style: normal;
   letter-spacing: 1px;
   text-decoration: none;
-  background-color: #D87D4A;
+  background-color: #D87D4A !important;
   color: #fcfcfd;
-  margin-right: 1.2rem;
+  margin-right: 1.2rem !important;
   border: none;
   width: 9rem;
 }
@@ -251,10 +251,30 @@
   color: #D87D4A;
   transform: translateY(2px);
 }
-.hidden .signin-link {
+
+.signin-link {
   padding-bottom: 1rem;
 }
-.hidden .button__login {
+
+.once-signed-in {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.once-signed-in .user-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.once-signed-out {
+  background-color: #141414;
+  display: flex;
+  flex-direction: column;
+}
+.once-signed-out .button__login {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -265,39 +285,76 @@
   font-style: normal;
   letter-spacing: 1px;
   text-decoration: none;
-  background-color: #D87D4A;
-  color: #fcfcfd;
-  border: none;
+  background-color: #D87D4A !important;
+  color: #fcfcfd !important;
+  border: none !important;
+  width: 8rem;
+  height: 2.4rem !important;
+  margin-bottom: 0.5rem;
 }
-.hidden .button__login:hover {
+.once-signed-out .button__login:hover {
   background-color: #fdb97d;
 }
-.hidden .button__login:active, .hidden .button__login:focus {
+.once-signed-out .button__login:active, .once-signed-out .button__login:focus {
   border-color: #D87D4A;
   background: #D87D4A;
   box-shadow: #D87D4A;
 }
-.hidden .button__login ::selection {
+.once-signed-out .button__login ::selection {
   color: #fff;
   background: #D87D4A !important;
 }
-.hidden .button__signup {
+.once-signed-out .button__signup {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 1.5rem 2rem;
   cursor: pointer;
-  color: #f1f1f1;
   font-size: 13px;
   font-weight: bolder;
   font-style: normal;
   letter-spacing: 1px;
   text-decoration: none;
-  color: #23262f;
+  color: #D87D4A !important;
+  width: 8rem !important;
+  height: 2.4rem !important;
+  border-color: #D87D4A !important;
 }
-.hidden .button__signup:hover {
+.once-signed-out .button__signup:hover {
   background-color: #fcfcfd;
   color: #D87D4A;
+}
+
+.button__sign-out {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: bolder;
+  font-style: normal;
+  letter-spacing: 1px;
+  text-decoration: none;
+  background-color: #D87D4A !important;
+  color: #fcfcfd;
+  margin-right: 1.2rem !important;
+  border: none !important;
+  width: 9rem;
+  margin: 0;
+  margin-left: 1rem;
+}
+.button__sign-out:hover {
+  background-color: #fdb97d;
+}
+.button__sign-out:active, .button__sign-out:focus {
+  border-color: #D87D4A;
+  background: #D87D4A;
+  box-shadow: #D87D4A;
+}
+.button__sign-out ::selection {
+  color: #fff;
+  background: #D87D4A !important;
 }
 
 .ant-menu-item .ant-meun-item-active {

@@ -9,16 +9,20 @@
     justify-content: center;
     margin: 0;
 
+    display: flex;
+    flex-wrap: wrap;
+
     //left
     &__left {
         display: flex;
         align-items: flex-end;
         justify-content: center;
+        margin-right: 2rem;
     }
 
     &__img {
         width: 41rem;
-        height: 49.3rem;
+        height: 100%, 49.3rem;
         background-position: cover;
         transform: translateY(8rem) !important;
         margin-top: 2rem;
@@ -29,22 +33,24 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 10rem 0;
+        padding: max(6.96vw, 8rem) 0;
+        margin-left: 2rem;
     }
 
     &__detail {
         display: flex;
         align-items: flex-start;
         flex-direction: column;
-        width: max(30rem, 24.2vw);
+        width: max(200px, 24.2vw);
 
         &__new {
             @include text-style-new-product;
-            color: $color-primary;
+            color: $color-neutrals-7;
         }
 
         &__title {
             @include text-style-h1;
+            font-size: max(16px, 3.89vw);
             color: $color-neutrals-8;
         }
 

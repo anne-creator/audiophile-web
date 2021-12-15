@@ -156,8 +156,8 @@
             align-items: center;
             justify-content: center;
             background-color: $color-primary;
-            height: 1.5rem;
-            width: 1.5rem;
+            height: 1.6rem;
+            width: 1.6rem;
             border-radius: 50%;
         }
 
@@ -167,15 +167,14 @@
             margin-left: -0.05rem;
         }
 
-        // cart end
-
+        // cart right
         .button__login,
         .button__sign-out {
             @include button-basic;
             @include text-style-button;
-            background-color: $color-primary;
+            background-color: $color-primary !important;
             color: $color-neutrals-8;
-            margin-right: 1.2rem;
+            margin-right: 1.2rem !important;
             border: none;
             width: 9rem;
 
@@ -217,6 +216,7 @@
 }
 
 
+// when clinked the nav button
 .hidden {
     display: flex;
     width: 100%;
@@ -260,18 +260,45 @@
             transform: translateY(2px);
         }
     }
+}
 
-    // \\\\\\\\\\\\   Once signed In   \\\\\\\\\\\\\\
-    .signin-link {
-        padding-bottom: 1rem;
+// \\\\\\\\\\\\   Once signed In   \\\\\\\\\\\\\\
+.signin-link {
+    padding-bottom: 1rem;
+}
+
+.once-signed-in {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .user-info {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 1rem;
     }
+}
+
+
+
+
+// once signed out
+.once-signed-out {
+    background-color: $color-secondary;
+    display: flex;
+    flex-direction: column;
 
     .button__login {
         @include button-basic;
         @include text-style-button;
-        background-color: $color-primary;
-        color: $color-neutrals-8;
-        border: none;
+        background-color: $color-primary !important;
+        color: $color-neutrals-8 !important;
+        border: none !important;
+        width: 8rem;
+        height: 2.4rem !important;
+        margin-bottom: .5rem;
 
         &:hover {
             background-color: $color-primary-light;
@@ -292,15 +319,46 @@
 
     .button__signup {
         @include button-basic;
-        color: $color-neutrals-7;
         @include text-style-button;
-        color: $color-neutrals-2;
-
+        color: $color-primary !important;
+        width: 8rem !important;
+        height: 2.4rem !important;
+        border-color: $color-primary !important;
 
         &:hover {
             background-color: $color-neutrals-8;
             color: $color-primary;
         }
+    }
+
+
+}
+
+.button__sign-out {
+    @include button-basic;
+    @include text-style-button;
+    background-color: $color-primary !important;
+    color: $color-neutrals-8;
+    margin-right: 1.2rem !important;
+    border: none !important;
+    width: 9rem;
+    margin: 0;
+    margin-left: 1rem;
+
+    &:hover {
+        background-color: $color-primary-light;
+    }
+
+    &:active,
+    &:focus {
+        border-color: $color-primary;
+        background: $color-primary;
+        box-shadow: $color-primary;
+    }
+
+    ::selection {
+        color: #fff;
+        background: $color-primary !important;
     }
 }
 

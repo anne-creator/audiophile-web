@@ -46,7 +46,7 @@ export const Header: React.FC = () => {
         </Link>
         {/* 2.nav */}
         <div className={styles['nav']}>
-          {/* nav button */}
+          {/* nav button : for smaller screen size */}
           <div className={styles['nav__category']}>
             <MenuOutlined
               className={styles['nav__button']}
@@ -54,7 +54,7 @@ export const Header: React.FC = () => {
               onClick={() => setShowLinks(!showLinks)}
             />
           </div>
-          {/* nav bar */}
+          {/* nav bar:: for large screen size */}
           <ul className={styles["nav__items"]}>
             <Link to={'/'} >
               <li className={styles['item']}>
@@ -111,11 +111,11 @@ export const Header: React.FC = () => {
           </div>
         </div>
       </div>
-      {/* nav bar */}
+      {/* nav bar: only interacted in smaller screen size */}
       {
         showLinks ?
-          <div>
-            <ul className={styles[showLinks ? 'hidden' : '']} >
+          <div className={styles[showLinks ? 'hidden' : '']}>
+            <ul  >
               <Link to={'/'} >
                 <li className={styles['item']}>
                   HOME
@@ -136,15 +136,34 @@ export const Header: React.FC = () => {
                   EARPHONES
                 </li>
               </Link>
-              <li >
-                <Link to={`signIn`} >
-                  <Button type='primary' className={styles['button__login']} >Sign In</Button></Link>
-              </li>
-              <li >
-                <Link to={`register`}>
-                  <Button className={styles['button__signup']} >Register</Button></Link>
-              </li>
             </ul>
+            {/* (jwt) ? when signed in : not signed in */}
+            {(jwt) ? (
+              <div className={styles["once-signed-in"]}>
+                <div className={styles['user-info']} >
+                  <div className={styles['header__right__user-name']}>{`Welcome,  ${username}`}</div>
+                  <Link to={`/cart`} className={styles['header__right__link']} >
+                    <div className={styles['header__right__cart-container']}>
+                      <ShoppingCartOutlined className={styles['header__right__cart']} />
+                      <div className={styles['header__right__cart-item-container']} >
+                        <div className={styles['header__right__cart-item']} >{cartQuantity}</div>
+                      </div>
+                    </div>
+                  </Link>
+                </div>
+                <Button className={styles['button__sign-out']} type='primary' onClick={onLogout}>Sign Out</Button>
+              </div>
+            )
+              :
+              (
+                <div className={styles['once-signed-out']} >
+                  <Link to={`signIn`} >
+                    <Button type='primary' className={styles['button__login']} >Sign In</Button></Link>
+                  <Link to={`register`}>
+                    <Button className={styles['button__signup']} >Register</Button></Link>
+                </div>
+              )
+            }
           </div>
           : null
       }

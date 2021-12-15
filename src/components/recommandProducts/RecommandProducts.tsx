@@ -14,13 +14,13 @@ export const RecommandProducts: React.FC = () => {
     const productPromote = useSelector(s => s.productPromote.data);
     return (<>
         <div>
-            <Row className={styles['ZX9']} >
-                <Col xs={24} sm={24} md={24} lg={12}>
+            <div className={styles['ZX9']} >
+                <div>
                     <div className={styles['ZX9__left']}>
                         <img className={styles['ZX9__img']} src={productPromote[3]?.imageSrcList?.recommand} alt="ZX9 product" />
                     </div>
-                </Col>
-                <Col xs={24} sm={24} md={24} lg={12}>
+                </div>
+                <div>
                     <div className={styles['ZX9__right']}>
                         <div className={styles['ZX9__detail']}>
                             {productPromote[3]?.ifNew ? (
@@ -33,8 +33,8 @@ export const RecommandProducts: React.FC = () => {
                             </Link>
                         </div>
                     </div>
-                </Col>
-            </Row>
+                </div>
+            </div>
             <Row className={styles['ZX7']}>
                 <Col className={styles['ZX7__left']}>
                     <div className={styles['ZX7__detail']}>
