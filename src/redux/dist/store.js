@@ -36,4 +36,5 @@ var store = toolkit_1.configureStore({
 });
 //create persist store
 var persistor = redux_persist_1.persistStore(store);
+// eslint-disable-next-line
 exports["default"] = { store: store, persistor: persistor };

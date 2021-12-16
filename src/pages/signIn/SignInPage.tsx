@@ -1,6 +1,6 @@
 import React from "react";
 import styles from './SignInPage.module.scss'
-import { Form, Input, Button, Checkbox } from "antd";
+import { Form, Input, Button } from "antd";
 import { signIn } from '../../redux/user/slice'
 import { UserLayout } from '../../layouts/userLayout'
 import { useDispatch } from 'react-redux'
@@ -17,6 +17,7 @@ const tailLayout = {
 
 export const SignInPage = (props) => {
     const loading = useSelector(s => s.user.loading);
+    // eslint-disable-next-line
     const error = useSelector(s => s.user.error);
     const jwt = useSelector(s => s.user.token);
 

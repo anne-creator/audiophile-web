@@ -17,7 +17,7 @@
   height: 50rem;
   display: flex;
   justify-content: center;
-  align-items: start;
+  align-items: flex-start;
   flex-direction: column;
   padding-left: 11.45vw;
 }

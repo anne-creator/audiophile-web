@@ -13,7 +13,6 @@ import { Categories, Story, MayLikeProducts } from '../../components'
 import { MainLayout } from '../../layouts/mainLayout'
 import { Button, Spin } from 'antd'
 import { addToCart } from '../../redux/cartList/slice'
-import { userSlice } from '../../redux/user/slice'
 
 interface PropsType {
     productId: string;
@@ -30,6 +29,7 @@ export const ProductPage: React.FC<PropsType> = () => {
     /** Get product by its productId */
     useEffect(() => {
         dispatch(getProductItem(`${productId}`))
+        // eslint-disable-next-line
     }, [productId]);
     const data = useSelector(s => s.productItem.data)
     const error = useSelector((s) => s.productItem.error);
@@ -43,7 +43,7 @@ export const ProductPage: React.FC<PropsType> = () => {
 
     //handle product quantity
     const handleProductQuantity = (num: number) => {
-        if (num === 1 && productQuantity <= 99 || num === -1 && productQuantity >= 1) {
+        if ((num === 1 && productQuantity <= 99) || (num === -1 && productQuantity >= 1)) {
             setProductQuantity(productQuantity + num);
         }
     }
@@ -61,6 +61,7 @@ export const ProductPage: React.FC<PropsType> = () => {
         })
         let str1 = JSON.stringify(cartItem, null, 4);
         console.log(`cartItem is been updated ${str1}`);
+        // eslint-disable-next-line
     }, [productQuantity, productId, productItem])
     /** dispatch cartItem to store when clicked add to cart */
     const handleAddtoCart = () => {

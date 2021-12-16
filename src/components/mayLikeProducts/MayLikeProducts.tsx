@@ -9,6 +9,7 @@ export const MayLikeProducts: React.FC = () => {
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(getProductPromote({}));
+        // eslint-disable-next-line
     }, []);
     const productList = useSelector(s => s.productPromote.data);
 

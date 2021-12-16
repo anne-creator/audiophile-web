@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import styles from './CheckoutPage.module.scss'
-import { useSelector } from '../../redux/hooks'
 import { MainLayout } from '../../layouts/mainLayout'
 import { Button } from 'antd'
 import { useLocation, useHistory } from 'react-router-dom';
@@ -43,7 +42,7 @@ export const CheckoutPage: React.FC = () => {
     const [cardNumberP, setCardNumberP] = useState<string>("");
     const [expireData, setExpireDataP] = useState<string>("");
     const [CVC, setCVCP] = useState<string>("");
-
+    // eslint-disable-next-line
     const [orderInfo, setOrderInfo] = useState<Object>({});
 
 

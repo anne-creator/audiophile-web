@@ -35,5 +35,5 @@ const store = configureStore({
 
 //create persist store
 const persistor = persistStore(store);
-
+// eslint-disable-next-line
 export default {store, persistor};

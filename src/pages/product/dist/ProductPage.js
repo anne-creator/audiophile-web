@@ -25,6 +25,7 @@ exports.ProductPage = function () {
     /** Get product by its productId */
     react_1.useEffect(function () {
         dispatch(slice_1.getProductItem("" + productId));
+        // eslint-disable-next-line
     }, [productId]);
     var data = hooks_1.useSelector(function (s) { return s.productItem.data; });
     var error = hooks_1.useSelector(function (s) { return s.productItem.error; });
@@ -36,7 +37,7 @@ exports.ProductPage = function () {
     // console.log(`the new defualt cartItem is ${str}`);
     //handle product quantity
     var handleProductQuantity = function (num) {
-        if (num === 1 && productQuantity <= 99 || num === -1 && productQuantity >= 1) {
+        if ((num === 1 && productQuantity <= 99) || (num === -1 && productQuantity >= 1)) {
             setProductQuantity(productQuantity + num);
         }
     };
@@ -54,6 +55,7 @@ exports.ProductPage = function () {
         });
         var str1 = JSON.stringify(cartItem, null, 4);
         console.log("cartItem is been updated " + str1);
+        // eslint-disable-next-line
     }, [productQuantity, productId, productItem]);
     /** dispatch cartItem to store when clicked add to cart */
     var handleAddtoCart = function () {

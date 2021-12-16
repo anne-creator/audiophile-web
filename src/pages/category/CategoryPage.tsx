@@ -19,8 +19,9 @@ export const CategoryPage: React.FC<MatchParams> = (props) => {
     /** Get all product and filted it with categoryID */
     useEffect(() => {
         dispatch(getProductPromote({}));
+        // eslint-disable-next-line
     }, []);
-    const products = productList.filter(item => item.categoryId == categoryId)
+    const products = productList.filter(item => item.categoryId === categoryId)
     return (
         <>
             <MainLayout>

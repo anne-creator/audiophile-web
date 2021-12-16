@@ -5,7 +5,6 @@ export * from './recommandProducts';
 export * from './product';
 export * from './story';
 export * from './mayLikeProducts';
-export * from './orderPlacedPopUp';
 
 
 

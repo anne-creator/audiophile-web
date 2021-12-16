@@ -17,4 +17,3 @@ __exportStar(require("./recommandProducts"), exports);
 __exportStar(require("./product"), exports);
 __exportStar(require("./story"), exports);
 __exportStar(require("./mayLikeProducts"), exports);
-__exportStar(require("./orderPlacedPopUp"), exports);

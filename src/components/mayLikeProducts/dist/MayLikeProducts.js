@@ -11,6 +11,7 @@ exports.MayLikeProducts = function () {
     var dispatch = react_redux_1.useDispatch();
     react_1.useEffect(function () {
         dispatch(slice_1.getProductPromote({}));
+        // eslint-disable-next-line
     }, []);
     var productList = hooks_1.useSelector(function (s) { return s.productPromote.data; });
     var getRandomInt = function (min, max) {

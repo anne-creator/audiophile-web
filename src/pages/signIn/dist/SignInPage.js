@@ -30,6 +30,7 @@ var tailLayout = {
 };
 exports.SignInPage = function (props) {
     var loading = hooks_1.useSelector(function (s) { return s.user.loading; });
+    // eslint-disable-next-line
     var error = hooks_1.useSelector(function (s) { return s.user.error; });
     var jwt = hooks_1.useSelector(function (s) { return s.user.token; });
     var dispatch = react_redux_1.useDispatch();

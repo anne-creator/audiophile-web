@@ -13,6 +13,7 @@ exports.RecommandProducts = function () {
     var dispatch = react_redux_1.useDispatch();
     react_1.useEffect(function () {
         dispatch(slice_1.getProductPromote({}));
+        // eslint-disable-next-line
     }, []);
     var productPromote = hooks_1.useSelector(function (s) { return s.productPromote.data; });
     return (react_1["default"].createElement(react_1["default"].Fragment, null,

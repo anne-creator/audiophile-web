@@ -1,7 +1,7 @@
 import React from "react";
 import styles from './RegisterPage.module.scss'
 import { UserLayout } from '../../layouts/userLayout'
-import { Form, Input, Button, Checkbox } from "antd";
+import { Form, Input, Button } from "antd";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 axios.defaults.headers['x-icode'] = 'B5EA3AEF306DE5CF'

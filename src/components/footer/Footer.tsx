@@ -4,9 +4,6 @@ import logo from "../../assets/logo.png"
 import fb from "../../assets/fb.png"
 import twitter from "../../assets/twitter.png"
 import ins from "../../assets/ins.png"
-import { useSelector } from '../../redux/hooks'
-import { useDispatch } from "react-redux";
-import { getProductPromote } from '../../redux/productPromote/slice'
 import { Link } from 'react-router-dom'
 
 export const Footer: React.FC = () => {

@@ -34,6 +34,7 @@ exports.CheckoutPage = function () {
     var _r = react_1.useState(""), cardNumberP = _r[0], setCardNumberP = _r[1];
     var _s = react_1.useState(""), expireData = _s[0], setExpireDataP = _s[1];
     var _t = react_1.useState(""), CVC = _t[0], setCVCP = _t[1];
+    // eslint-disable-next-line
     var _u = react_1.useState({}), orderInfo = _u[0], setOrderInfo = _u[1];
     //order info updating when clients enter infomation state
     react_1.useEffect(function () {

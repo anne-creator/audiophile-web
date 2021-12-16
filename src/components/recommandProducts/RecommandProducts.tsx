@@ -10,6 +10,7 @@ export const RecommandProducts: React.FC = () => {
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(getProductPromote({}));
+        // eslint-disable-next-line
     }, []);
     const productPromote = useSelector(s => s.productPromote.data);
     return (<>

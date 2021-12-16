@@ -18,8 +18,9 @@ exports.CategoryPage = function (props) {
     /** Get all product and filted it with categoryID */
     react_1.useEffect(function () {
         dispatch(slice_1.getProductPromote({}));
+        // eslint-disable-next-line
     }, []);
-    var products = productList.filter(function (item) { return item.categoryId == categoryId; });
+    var products = productList.filter(function (item) { return item.categoryId === categoryId; });
     return (react_1["default"].createElement(react_1["default"].Fragment, null,
         react_1["default"].createElement(mainLayout_1.MainLayout, null,
             react_1["default"].createElement("h1", { className: CategoryPage_module_scss_1["default"]['title'] }, item.title),
